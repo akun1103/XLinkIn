@@ -15,4 +15,5 @@ typedef void(^ShowContentBlock)(NSDictionary * dictionary);
 @property (nonatomic,strong) NSString *url;
 @property (copy) ShowContentBlock showContent;
 @property (nonatomic,strong) NSDictionary *dataDic;
+@property (nonatomic,strong) NSMutableArray *arrayList;
 @end

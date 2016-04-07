@@ -26,6 +26,9 @@
 		AA11234A1CB602B200B3CC54 /* KNTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1123491CB602B200B3CC54 /* KNTableViewController.m */; };
 		AA11234D1CB602C300B3CC54 /* KNCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11234C1CB602C300B3CC54 /* KNCollectionViewController.m */; };
 		AA1123501CB62F3800B3CC54 /* KNOnlineCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11234F1CB62F3800B3CC54 /* KNOnlineCollectionViewCell.m */; };
+		AA78FA1F1CB649E40014E7DB /* KNNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA78FA1C1CB649E40014E7DB /* KNNavigationController.m */; };
+		AA78FA201CB649E40014E7DB /* KNRootTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA78FA1E1CB649E40014E7DB /* KNRootTabBarViewController.m */; };
+		AA78FA231CB64DD60014E7DB /* KNNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AA78FA221CB64DD60014E7DB /* KNNetworkTool.m */; };
 		E738573A5EEA8D163AB346BE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DC496ADEA100DA287A5912A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +75,12 @@
 		AA11234C1CB602C300B3CC54 /* KNCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNCollectionViewController.m; sourceTree = "<group>"; };
 		AA11234E1CB62F3800B3CC54 /* KNOnlineCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNOnlineCollectionViewCell.h; sourceTree = "<group>"; };
 		AA11234F1CB62F3800B3CC54 /* KNOnlineCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNOnlineCollectionViewCell.m; sourceTree = "<group>"; };
+		AA78FA1B1CB649E40014E7DB /* KNNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNNavigationController.h; sourceTree = "<group>"; };
+		AA78FA1C1CB649E40014E7DB /* KNNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNNavigationController.m; sourceTree = "<group>"; };
+		AA78FA1D1CB649E40014E7DB /* KNRootTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNRootTabBarViewController.h; sourceTree = "<group>"; };
+		AA78FA1E1CB649E40014E7DB /* KNRootTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNRootTabBarViewController.m; sourceTree = "<group>"; };
+		AA78FA211CB64DD60014E7DB /* KNNetworkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNNetworkTool.h; sourceTree = "<group>"; };
+		AA78FA221CB64DD60014E7DB /* KNNetworkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNNetworkTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +171,8 @@
 				0A1D8D3F1CB2C8C50083BE75 /* NetworkSingleton.m */,
 				0A1D8D471CB542A90083BE75 /* KNTools.h */,
 				0A1D8D481CB542A90083BE75 /* KNTools.m */,
+				AA78FA211CB64DD60014E7DB /* KNNetworkTool.h */,
+				AA78FA221CB64DD60014E7DB /* KNNetworkTool.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -244,6 +255,10 @@
 		AA11233E1CB6026400B3CC54 /* CommonController */ = {
 			isa = PBXGroup;
 			children = (
+				AA78FA1B1CB649E40014E7DB /* KNNavigationController.h */,
+				AA78FA1C1CB649E40014E7DB /* KNNavigationController.m */,
+				AA78FA1D1CB649E40014E7DB /* KNRootTabBarViewController.h */,
+				AA78FA1E1CB649E40014E7DB /* KNRootTabBarViewController.m */,
 				AA1123451CB6029500B3CC54 /* KNViewController.h */,
 				AA1123461CB6029500B3CC54 /* KNViewController.m */,
 				AA1123481CB602B200B3CC54 /* KNTableViewController.h */,
@@ -288,6 +303,7 @@
 				TargetAttributes = {
 					0AF6D6AB1CB0EF4400ECE05E = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = U98V5FUJQ2;
 					};
 				};
 			};
@@ -378,6 +394,7 @@
 				AA1123501CB62F3800B3CC54 /* KNOnlineCollectionViewCell.m in Sources */,
 				0A1D8D341CB2B6AD0083BE75 /* KNPhotoViewController.m in Sources */,
 				0A1D8D401CB2C8C50083BE75 /* NetworkSingleton.m in Sources */,
+				AA78FA1F1CB649E40014E7DB /* KNNavigationController.m in Sources */,
 				0A1D8D4C1CB564CD0083BE75 /* KNMovieDetailViewController.m in Sources */,
 				0A1D8D431CB4065C0083BE75 /* KNMenuLabel.m in Sources */,
 				0AF6D6DF1CB0FCF200ECE05E /* KNOnlineViewController.m in Sources */,
@@ -387,9 +404,11 @@
 				0A1D8D491CB542A90083BE75 /* KNTools.m in Sources */,
 				0AF6D6DC1CB0FCE200ECE05E /* KNLiveViewController.m in Sources */,
 				0A1D8D371CB2C7EC0083BE75 /* KNMusicViewController.m in Sources */,
+				AA78FA201CB649E40014E7DB /* KNRootTabBarViewController.m in Sources */,
 				0A1D8D461CB5409C0083BE75 /* KNContentShowCollectionViewController.m in Sources */,
 				AA11234A1CB602B200B3CC54 /* KNTableViewController.m in Sources */,
 				0AF6D6B11CB0EF4500ECE05E /* main.m in Sources */,
+				AA78FA231CB64DD60014E7DB /* KNNetworkTool.m in Sources */,
 				AA1123471CB6029500B3CC54 /* KNViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,11 +503,14 @@
 			baseConfigurationReference = 75FCA3F42AA94839845FDA01 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/XLinkIn/PrefixHeader.pch";
 				INFOPLIST_FILE = XLinkIn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevin.XLinkIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -497,11 +519,14 @@
 			baseConfigurationReference = 1960F4AA84A03839EED33D56 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/XLinkIn/PrefixHeader.pch";
 				INFOPLIST_FILE = XLinkIn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevin.XLinkIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

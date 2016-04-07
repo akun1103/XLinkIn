@@ -49,7 +49,7 @@
     line.backgroundColor = DEFAULT_LINE_GRAY_COLOR;
     [_sScrollView addSubview:line];
     
-    UIScrollView *bScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, MenuHeight, WIDTH_SCREEN, HEIGHT_SCREEN - MenuHeight - 49)];
+    UIScrollView *bScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, MenuHeight, WIDTH_SCREEN, HEIGHT_SCREEN - MenuHeight - 113)];
     CGFloat contentX = _arrayList.count * [UIScreen mainScreen].bounds.size.width;
     bScrollView.contentSize = CGSizeMake(contentX, 0);
     bScrollView.bounces = NO;

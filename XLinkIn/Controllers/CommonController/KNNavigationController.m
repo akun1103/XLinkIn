@@ -33,7 +33,7 @@
 
 -(void)addbackBtn:(UIViewController *)viewController{
     
-    UIBarButtonItem *back = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"btn_return"] style:UIBarButtonItemStylePlain target:self action:@selector(backBtnClick)];
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"btn_return"] style:UIBarButtonItemStylePlain target:self action:@selector(backBtnClick)];
     
     
     viewController.navigationItem.leftBarButtonItems = @[back];

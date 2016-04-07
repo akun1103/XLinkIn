@@ -27,4 +27,5 @@ typedef void(^NetworkStatus)(AFNetworkReachabilityStatus status);
 - (void)uploadImageWithParameter:(NSDictionary *)parameter url:(NSString *)url imageArray:(NSArray *)imageArray success:(SuccessBlock)successBlock failure:(ErrorBlock)errorBlock;
 #pragma mark AFNetworking --监控网络状态
 - (void)MonitorReachabilityStatusChangeBlock:(NetworkStatus)networkStatus;
+- (BOOL)networkReachable;
 @end

@@ -84,4 +84,11 @@ static NetworkSingleton *shareNetworkSingleton = nil;
     }];
     [manager startMonitoring];
 }
+
+- (BOOL)networkReachable
+{
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+    return manager.reachable;
+}
+
 @end

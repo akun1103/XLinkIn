@@ -15,8 +15,10 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
-        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 90, 120)];
-        _label = [[UILabel alloc] initWithFrame:CGRectMake(5, 125, 90, 20)];
+        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height-20)];
+        _label = [[UILabel alloc] initWithFrame:CGRectMake(0, self.frame.size.height-20, self.frame.size.width, 20)];
+        _label.textAlignment = NSTextAlignmentCenter;
+        _label.font = [UIFont systemFontOfSize:16.0];
         [self addSubview:_imageView];
         [self addSubview:_label];
     }
