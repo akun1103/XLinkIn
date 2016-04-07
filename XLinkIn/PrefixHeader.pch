@@ -33,6 +33,7 @@
 #import "NetworkSingleton.h"
 #import "SVProgressHUD.h"
 #import "Masonry.h"
+#import "UIImageView+WebCache.h"
 #import "KNTools.h"
 #import "KNCollectionViewController.h"
 #import "KNTableViewController.h"

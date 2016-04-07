@@ -55,9 +55,10 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)loadData
 {
+    NSLog(@"上拉刷新");
     refreshPage = 1;
     NSString *url = [NSString stringWithFormat:@"%@%li",_url,(long)refreshPage];
-//    NSLog(@"上拉刷新");
+
 //    if([[NetworkSingleton sharedManager] networkReachable] == NO)
 //    {
 //        NSLog(@"网络断开了！");
@@ -73,7 +74,16 @@ static NSString * const reuseIdentifier = @"Cell";
 {
     NSLog(@"下拉刷新");
     NSString *url = [NSString stringWithFormat:@"%@%li",_url,(long)refreshPage];
-    [self getDataForType:2 WithURL:url];
+//    if([[NetworkSingleton sharedManager] networkReachable] == NO)
+//    {
+//        NSLog(@"网络断开了！");
+//        [self.collectionView.mj_header endRefreshing];
+//    }
+//    else
+//    {
+        [self getDataForType:2 WithURL:url];
+//    }
+
 }
 
 - (NSArray *)parseData:(NSDictionary *)dictionary
@@ -135,9 +145,9 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     KNOnlineCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-//    cell.imageView = []
+    NSString *url = [[_arrayList objectAtIndex:indexPath.row] objectForKey:@"imgh_url"];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"movie_default"]];
     cell.label.text = [[_arrayList objectAtIndex:indexPath.row] objectForKey:@"title"];
-//    cell.backgroundColor = [UIColor blueColor];
     return cell;
 }
 
@@ -145,14 +155,14 @@ static NSString * const reuseIdentifier = @"Cell";
 //定义每个UICollectionView 的大小（返回CGSize：宽度和高度）
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat height = CollectionViewCell_WIDTH * 4/3 + 20;
+    CGFloat height = CollectionViewCell_WIDTH * 4/3 + 18;
     return CGSizeMake(CollectionViewCell_WIDTH, height);
 }
 //定义每个UICollectionView 的间距（返回UIEdgeInsets：上、左、下、右）
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
     CGFloat left = (WIDTH_SCREEN - CollectionViewCell_WIDTH * 3)/6;
-    return UIEdgeInsetsMake(0, left, 0, left);
+    return UIEdgeInsetsMake(5, left, 0, left);
 }
 //定义每个UICollectionView 纵向的间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
@@ -162,35 +172,8 @@ static NSString * const reuseIdentifier = @"Cell";
 //UICollectionView被选中时调用的方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    self.showContent(_arrayList[indexPath.row]);
 }
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end

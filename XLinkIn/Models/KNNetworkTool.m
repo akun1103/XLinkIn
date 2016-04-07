@@ -10,4 +10,8 @@
 
 @implementation KNNetworkTool
 
+- (void)getResultWithParameter:(NSDictionary *)parameter url:(NSString *)url success:(SuccessBlock)successBlock failure:(ErrorBlock)errorBlock
+{
+    
+}
 @end

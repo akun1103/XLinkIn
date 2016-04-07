@@ -16,6 +16,7 @@
 		0A1D8D461CB5409C0083BE75 /* KNContentShowCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D8D451CB5409C0083BE75 /* KNContentShowCollectionViewController.m */; };
 		0A1D8D491CB542A90083BE75 /* KNTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D8D481CB542A90083BE75 /* KNTools.m */; };
 		0A1D8D4C1CB564CD0083BE75 /* KNMovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D8D4B1CB564CD0083BE75 /* KNMovieDetailViewController.m */; };
+		0A39536A1CB6AA7B00B5906E /* KNDataCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3953691CB6AA7B00B5906E /* KNDataCacheTool.m */; };
 		0A7485B21CB10E83001BCF73 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A7485B11CB10E83001BCF73 /* Images.xcassets */; };
 		0AF6D6B11CB0EF4500ECE05E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6D6B01CB0EF4500ECE05E /* main.m */; };
 		0AF6D6B41CB0EF4500ECE05E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6D6B31CB0EF4500ECE05E /* AppDelegate.m */; };
@@ -52,6 +53,8 @@
 		0A1D8D481CB542A90083BE75 /* KNTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNTools.m; sourceTree = "<group>"; };
 		0A1D8D4A1CB564CD0083BE75 /* KNMovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNMovieDetailViewController.h; sourceTree = "<group>"; };
 		0A1D8D4B1CB564CD0083BE75 /* KNMovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNMovieDetailViewController.m; sourceTree = "<group>"; };
+		0A3953681CB6AA7B00B5906E /* KNDataCacheTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNDataCacheTool.h; sourceTree = "<group>"; };
+		0A3953691CB6AA7B00B5906E /* KNDataCacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNDataCacheTool.m; sourceTree = "<group>"; };
 		0A7485B11CB10E83001BCF73 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0AF6D6AC1CB0EF4400ECE05E /* XLinkIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XLinkIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AF6D6B01CB0EF4500ECE05E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 				0A1D8D481CB542A90083BE75 /* KNTools.m */,
 				AA78FA211CB64DD60014E7DB /* KNNetworkTool.h */,
 				AA78FA221CB64DD60014E7DB /* KNNetworkTool.m */,
+				0A3953681CB6AA7B00B5906E /* KNDataCacheTool.h */,
+				0A3953691CB6AA7B00B5906E /* KNDataCacheTool.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -303,7 +308,6 @@
 				TargetAttributes = {
 					0AF6D6AB1CB0EF4400ECE05E = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = U98V5FUJQ2;
 					};
 				};
 			};
@@ -392,6 +396,7 @@
 				0A1D8D3D1CB2C8180083BE75 /* KNDocumentViewController.m in Sources */,
 				AA11234D1CB602C300B3CC54 /* KNCollectionViewController.m in Sources */,
 				AA1123501CB62F3800B3CC54 /* KNOnlineCollectionViewCell.m in Sources */,
+				0A39536A1CB6AA7B00B5906E /* KNDataCacheTool.m in Sources */,
 				0A1D8D341CB2B6AD0083BE75 /* KNPhotoViewController.m in Sources */,
 				0A1D8D401CB2C8C50083BE75 /* NetworkSingleton.m in Sources */,
 				AA78FA1F1CB649E40014E7DB /* KNNavigationController.m in Sources */,

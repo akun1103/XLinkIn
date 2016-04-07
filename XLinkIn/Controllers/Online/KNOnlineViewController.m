@@ -45,7 +45,7 @@
     [self.view addSubview:sScrollView];
     _sScrollView = sScrollView;
     
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, MenuHeight-0.5, WIDTH_SCREEN, 0.5)];
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, MenuHeight-0.7, WIDTH_SCREEN, 0.7)];
     line.backgroundColor = DEFAULT_LINE_GRAY_COLOR;
     [_sScrollView addSubview:line];
     
@@ -54,6 +54,7 @@
     bScrollView.contentSize = CGSizeMake(contentX, 0);
     bScrollView.bounces = NO;
     bScrollView.pagingEnabled = YES;
+    bScrollView.showsHorizontalScrollIndicator = NO;
 //    bScrollView.backgroundColor = [UIColor blueColor];
     bScrollView.delegate = self;
     [self.view addSubview:bScrollView];
