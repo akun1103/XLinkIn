@@ -25,6 +25,7 @@
 		AA1123471CB6029500B3CC54 /* KNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1123461CB6029500B3CC54 /* KNViewController.m */; };
 		AA11234A1CB602B200B3CC54 /* KNTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1123491CB602B200B3CC54 /* KNTableViewController.m */; };
 		AA11234D1CB602C300B3CC54 /* KNCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11234C1CB602C300B3CC54 /* KNCollectionViewController.m */; };
+		AA1123501CB62F3800B3CC54 /* KNOnlineCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11234F1CB62F3800B3CC54 /* KNOnlineCollectionViewCell.m */; };
 		E738573A5EEA8D163AB346BE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DC496ADEA100DA287A5912A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,8 @@
 		AA1123491CB602B200B3CC54 /* KNTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNTableViewController.m; sourceTree = "<group>"; };
 		AA11234B1CB602C300B3CC54 /* KNCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNCollectionViewController.h; sourceTree = "<group>"; };
 		AA11234C1CB602C300B3CC54 /* KNCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNCollectionViewController.m; sourceTree = "<group>"; };
+		AA11234E1CB62F3800B3CC54 /* KNOnlineCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNOnlineCollectionViewCell.h; sourceTree = "<group>"; };
+		AA11234F1CB62F3800B3CC54 /* KNOnlineCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNOnlineCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +179,8 @@
 			children = (
 				0A1D8D411CB4065C0083BE75 /* KNMenuLabel.h */,
 				0A1D8D421CB4065C0083BE75 /* KNMenuLabel.m */,
+				AA11234E1CB62F3800B3CC54 /* KNOnlineCollectionViewCell.h */,
+				AA11234F1CB62F3800B3CC54 /* KNOnlineCollectionViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -370,6 +375,7 @@
 			files = (
 				0A1D8D3D1CB2C8180083BE75 /* KNDocumentViewController.m in Sources */,
 				AA11234D1CB602C300B3CC54 /* KNCollectionViewController.m in Sources */,
+				AA1123501CB62F3800B3CC54 /* KNOnlineCollectionViewCell.m in Sources */,
 				0A1D8D341CB2B6AD0083BE75 /* KNPhotoViewController.m in Sources */,
 				0A1D8D401CB2C8C50083BE75 /* NetworkSingleton.m in Sources */,
 				0A1D8D4C1CB564CD0083BE75 /* KNMovieDetailViewController.m in Sources */,
