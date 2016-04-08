@@ -10,6 +10,7 @@
 #import "KNOnlineViewController.h"
 #import "MJRefresh.h"
 #import "KNOnlineCollectionViewCell.h"
+#import "KNDataCacheTool.h"
 
 #define CollectionViewCell_WIDTH 100
 
@@ -23,25 +24,28 @@
 
 static NSString * const reuseIdentifier = @"Cell";
 
--(NSMutableArray *)arrayList
-{
-    if(_arrayList==nil){
-        _arrayList= [NSMutableArray array];
-    }
-    return _arrayList;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if(_arrayList == nil)
+    {
+        _arrayList = [NSMutableArray array];
+    }
+    //加载缓存数据
+    [_arrayList addObjectsFromArray:[self readCacheDataForType:_idStr]];
     // Register cell classes
+    UICollectionViewFlowLayout *flowLayout =[[UICollectionViewFlowLayout alloc]init];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:flowLayout];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    [self.view addSubview:self.collectionView];
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
+    
     [self.collectionView registerClass:[KNOnlineCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
 
-    // Do any additional setup after loading the view.
-    
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.collectionView.backgroundColor = [UIColor whiteColor];
-    
     __weak typeof(self) weakSelf = self;
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakSelf loadData];
@@ -50,7 +54,18 @@ static NSString * const reuseIdentifier = @"Cell";
         [weakSelf loadMoreData];
     }];
     
+    self.collectionView.mj_footer.automaticallyHidden = YES;
     [self.collectionView.mj_header beginRefreshing];
+    //监控网络状态
+    [[NetworkSingleton sharedManager] MonitorReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        NSLog(@"%ld",(long)status);
+    }];
+}
+
+- (NSArray *)readCacheDataForType:(NSString *)type
+{
+    NSArray *arr = [KNDataCacheTool dataWithID:type];
+    return arr;
 }
 
 - (void)loadData
@@ -59,30 +74,29 @@ static NSString * const reuseIdentifier = @"Cell";
     refreshPage = 1;
     NSString *url = [NSString stringWithFormat:@"%@%li",_url,(long)refreshPage];
 
-//    if([[NetworkSingleton sharedManager] networkReachable] == NO)
-//    {
-//        NSLog(@"网络断开了！");
-//        [self.collectionView.mj_header endRefreshing];
-//    }
-//    else
-//    {
+    if([[NetworkSingleton sharedManager] networkReachable] == NO)
+    {
+        [self.collectionView.mj_header endRefreshing];
+    }
+    else
+    {
         [self getDataForType:1 WithURL:url];
-//    }
+    }
 }
 
 - (void)loadMoreData
 {
     NSLog(@"下拉刷新");
     NSString *url = [NSString stringWithFormat:@"%@%li",_url,(long)refreshPage];
-//    if([[NetworkSingleton sharedManager] networkReachable] == NO)
-//    {
-//        NSLog(@"网络断开了！");
-//        [self.collectionView.mj_header endRefreshing];
-//    }
-//    else
-//    {
+    if([[NetworkSingleton sharedManager] networkReachable] == NO)
+    {
+        NSLog(@"网络断开了！");
+        [self.collectionView.mj_header endRefreshing];
+    }
+    else
+    {
         [self getDataForType:2 WithURL:url];
-//    }
+    }
 
 }
 
@@ -107,15 +121,19 @@ static NSString * const reuseIdentifier = @"Cell";
         {
             [_arrayList removeAllObjects];
             NSArray *array = [weakSelf parseData:responseObject];
+            //只缓存最新一页的数据
+            [KNDataCacheTool deleteWidthId:weakSelf.idStr];
+            [KNDataCacheTool addArr:array andId:weakSelf.idStr];
+            
             [weakSelf.arrayList addObjectsFromArray:array];
-            [self.collectionView reloadData];
+            [weakSelf.collectionView reloadData];
             [weakSelf.collectionView.mj_header endRefreshing];
         }
         else if(type == 2)
         {
             NSArray *array = [weakSelf parseData:responseObject];
             [weakSelf.arrayList addObjectsFromArray:array];
-            [self.collectionView reloadData];
+            [weakSelf.collectionView reloadData];
             [weakSelf.collectionView.mj_footer endRefreshing];
         }
 

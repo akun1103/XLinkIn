@@ -10,12 +10,13 @@
 #import "KNContentShowCollectionViewController.h"
 #import "KNMenuLabel.h"
 #import "KNMovieDetailViewController.h"
+#import "KNDataCacheTool.h"
 
 #define MenuHeight 44
 #define movieURL @"http://video.hao123.com/commonapi/movie2level/?type=&area=&actor=&start=&complete=%E6%AD%A3%E7%89%87&order=hot&rating=&prop=&_=1370760423051&page_size=24&pn="
-#define TVURL @"http://video.hao123.com/commonapi/tvplay2level/?filter=false&type=&area=&actor=&start=&complete=&order=hot&rating=&prop=&page_size=24&pn="
+#define televisionURL @"http://video.hao123.com/commonapi/tvplay2level/?filter=false&type=&area=&actor=&start=&complete=&order=hot&rating=&prop=&page_size=24&pn="
 #define animeURL @"http://video.hao123.com/commonapi/comic2level/?filter=false&type=&area=&actor=&start=&complete=&order=hot&rating=&prop=&page_size=24&pn="
-#define TVShowURL  @"http://v.hao123.com/commonapi/tvshow2level/?filter=false&type=&area=&actor=&start=&complete=&order=hot&rating=&prop=&page_size=24&pn="
+#define varietyShowURL  @"http://v.hao123.com/commonapi/tvshow2level/?filter=false&type=&area=&actor=&start=&complete=&order=hot&rating=&prop=&page_size=24&pn="
 
 @interface KNOnlineViewController ()
 {
@@ -33,7 +34,7 @@
     self.navigationItem.title = @"点播";
     self.navigationItem.leftBarButtonItem = nil;
     _arrayList = [NSArray arrayWithObjects:@"电影",@"电视剧",@"动漫",@"综艺", nil];
-    flowLayout =[[UICollectionViewFlowLayout alloc]init];
+
     [self setScrollView];
 
 }
@@ -63,7 +64,7 @@
     [self addLabel];
     [self addController];
     
-    UIViewController *vc = [controllerArray objectAtIndex:0];
+    KNContentShowCollectionViewController *vc = [controllerArray objectAtIndex:0];
     vc.view.frame = _bScrollView.bounds;
     [_bScrollView addSubview:vc.view];
     KNMenuLabel *label = [labelArray objectAtIndex:0];
@@ -82,7 +83,6 @@
         KNMenuLabel *label = [[KNMenuLabel alloc]init];
         label.text = [_arrayList objectAtIndex:i];
         label.frame = CGRectMake(lblX, lblY, lblW, lblH);
-//        label.font = [UIFont fontWithName:@"HYQiHei" size:19];
         label.textAlignment = NSTextAlignmentCenter;
         [_sScrollView addSubview:label];
         label.tag = i;
@@ -97,11 +97,15 @@
 - (void)addController
 {
     controllerArray = [NSMutableArray arrayWithCapacity:_arrayList.count];
-    NSArray *urlArray = [NSArray arrayWithObjects:movieURL,TVURL,animeURL,TVShowURL, nil];
+    NSArray *urlArray = [NSArray arrayWithObjects:movieURL,televisionURL,animeURL,varietyShowURL, nil];
+    NSArray *idArray = [NSArray arrayWithObjects:@"Movie",@"Television",@"Anime",@"varietyShow", nil];
     for(int i = 0; i < _arrayList.count; i++)
     {
-        KNContentShowCollectionViewController *controller = [[KNContentShowCollectionViewController alloc] initWithCollectionViewLayout:flowLayout];
+        KNContentShowCollectionViewController *controller = [[KNContentShowCollectionViewController alloc] init];
         controller.url = urlArray[i];
+        controller.idStr = idArray[i];
+//        NSArray *arr = [KNDataCacheTool dataWithID:idArray[i]];
+//        [controller.arrayList addObjectsFromArray:arr];
         __weak typeof(self) weakSelf = self;
         controller.showContent = ^(NSDictionary *dic){
             NSLog(@"dic = %@",dic);

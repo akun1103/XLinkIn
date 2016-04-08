@@ -10,10 +10,12 @@
 
 typedef void(^ShowContentBlock)(NSDictionary * dictionary);
 
-@interface KNContentShowCollectionViewController : KNCollectionViewController
+@interface KNContentShowCollectionViewController : KNViewController<UICollectionViewDataSource,UICollectionViewDelegate>
 
 @property (nonatomic,strong) NSString *url;
+@property (nonatomic,strong) NSString *idStr;
 @property (copy) ShowContentBlock showContent;
 @property (nonatomic,strong) NSDictionary *dataDic;
 @property (nonatomic,strong) NSMutableArray *arrayList;
+@property (nonatomic,strong) UICollectionView *collectionView;
 @end
