@@ -32,6 +32,8 @@
 		0AF6D6DF1CB0FCF200ECE05E /* KNOnlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6D6DE1CB0FCF200ECE05E /* KNOnlineViewController.m */; };
 		0AFE45A31CB8C88C009F73FD /* KNMusicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE45A21CB8C88C009F73FD /* KNMusicPlayer.m */; };
 		0AFE45B31CB8F6C5009F73FD /* KNSimleMusicControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE45B21CB8F6C5009F73FD /* KNSimleMusicControlView.m */; };
+		0AFE45B61CBA8020009F73FD /* KNPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE45B51CBA8020009F73FD /* KNPhotoModel.m */; };
+		0AFE45B91CBA8F0A009F73FD /* KNPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE45B81CBA8F0A009F73FD /* KNPhotoCollectionViewCell.m */; };
 		AA1123471CB6029500B3CC54 /* KNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1123461CB6029500B3CC54 /* KNViewController.m */; };
 		AA11234A1CB602B200B3CC54 /* KNTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1123491CB602B200B3CC54 /* KNTableViewController.m */; };
 		AA11234D1CB602C300B3CC54 /* KNCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11234C1CB602C300B3CC54 /* KNCollectionViewController.m */; };
@@ -94,6 +96,10 @@
 		0AFE45A21CB8C88C009F73FD /* KNMusicPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNMusicPlayer.m; sourceTree = "<group>"; };
 		0AFE45B11CB8F6C5009F73FD /* KNSimleMusicControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNSimleMusicControlView.h; sourceTree = "<group>"; };
 		0AFE45B21CB8F6C5009F73FD /* KNSimleMusicControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNSimleMusicControlView.m; sourceTree = "<group>"; };
+		0AFE45B41CBA8020009F73FD /* KNPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNPhotoModel.h; sourceTree = "<group>"; };
+		0AFE45B51CBA8020009F73FD /* KNPhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNPhotoModel.m; sourceTree = "<group>"; };
+		0AFE45B71CBA8F0A009F73FD /* KNPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNPhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		0AFE45B81CBA8F0A009F73FD /* KNPhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNPhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		1960F4AA84A03839EED33D56 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6DC496ADEA100DA287A5912A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FCA3F42AA94839845FDA01 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -217,6 +223,8 @@
 				0A39536F1CB80B8700B5906E /* KNMusicModel.m */,
 				0AFE45A11CB8C88C009F73FD /* KNMusicPlayer.h */,
 				0AFE45A21CB8C88C009F73FD /* KNMusicPlayer.m */,
+				0AFE45B41CBA8020009F73FD /* KNPhotoModel.h */,
+				0AFE45B51CBA8020009F73FD /* KNPhotoModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -242,6 +250,8 @@
 				0A3953751CB8915A00B5906E /* KNCommonTableViewCell.m */,
 				0AFE45B11CB8F6C5009F73FD /* KNSimleMusicControlView.h */,
 				0AFE45B21CB8F6C5009F73FD /* KNSimleMusicControlView.m */,
+				0AFE45B71CBA8F0A009F73FD /* KNPhotoCollectionViewCell.h */,
+				0AFE45B81CBA8F0A009F73FD /* KNPhotoCollectionViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -465,8 +475,10 @@
 				AA11234A1CB602B200B3CC54 /* KNTableViewController.m in Sources */,
 				0AF6D6B11CB0EF4500ECE05E /* main.m in Sources */,
 				AA78FA231CB64DD60014E7DB /* KNNetworkTool.m in Sources */,
+				0AFE45B91CBA8F0A009F73FD /* KNPhotoCollectionViewCell.m in Sources */,
 				0A39538C1CB8924F00B5906E /* NSString+TL.m in Sources */,
 				0AFE45A31CB8C88C009F73FD /* KNMusicPlayer.m in Sources */,
+				0AFE45B61CBA8020009F73FD /* KNPhotoModel.m in Sources */,
 				0A3953731CB88EBC00B5906E /* KNMusicTableViewCell.m in Sources */,
 				AA1123471CB6029500B3CC54 /* KNViewController.m in Sources */,
 			);

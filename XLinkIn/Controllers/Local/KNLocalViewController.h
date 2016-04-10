@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface KNLocalViewController : KNViewController
+
+@property (nonatomic, strong) ALAssetsLibrary *assetsLibrary;
 
 @end

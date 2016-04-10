@@ -12,8 +12,6 @@
 #import "KNOnlineCollectionViewCell.h"
 #import "KNDataCacheTool.h"
 
-#define CollectionViewCell_WIDTH 100
-
 @interface KNContentShowCollectionViewController ()
 {
     NSInteger refreshPage;
@@ -57,9 +55,9 @@ static NSString * const reuseIdentifier = @"Cell";
     self.collectionView.mj_footer.automaticallyHidden = YES;
     [self.collectionView.mj_header beginRefreshing];
     //监控网络状态
-    [[NetworkSingleton sharedManager] MonitorReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        NSLog(@"%ld",(long)status);
-    }];
+//    [[NetworkSingleton sharedManager] MonitorReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+//        NSLog(@"%ld",(long)status);
+//    }];
 }
 
 - (NSArray *)readCacheDataForType:(NSString *)type
@@ -173,16 +171,21 @@ static NSString * const reuseIdentifier = @"Cell";
 //定义每个UICollectionView 的大小（返回CGSize：宽度和高度）
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat height = CollectionViewCell_WIDTH * 4/3 + 18;
-    return CGSizeMake(CollectionViewCell_WIDTH, height);
+    CGFloat width = (WIDTH_SCREEN - 40)/3;
+    CGFloat height = width * 4/3 + 18;
+    return CGSizeMake(width, height);
 }
 //定义每个UICollectionView 的间距（返回UIEdgeInsets：上、左、下、右）
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    CGFloat left = (WIDTH_SCREEN - CollectionViewCell_WIDTH * 3)/6;
-    return UIEdgeInsetsMake(5, left, 0, left);
+    return UIEdgeInsetsMake(5, 10, 5, 10);
 }
 //定义每个UICollectionView 纵向的间距
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 8;
+}
+//定义每个UICollectionView 横向的间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
     return 0;

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KNPhotoViewController : KNViewController
+@interface KNPhotoViewController : KNViewController<UICollectionViewDataSource,UICollectionViewDelegate>
+
+@property(nonatomic,strong) UICollectionView *collectionView;
+@property(nonatomic,strong) NSArray *photoList;
 
 @end

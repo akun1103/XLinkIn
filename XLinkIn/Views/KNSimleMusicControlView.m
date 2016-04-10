@@ -9,6 +9,7 @@
 #import "KNSimleMusicControlView.h"
 #import "KNMusicPlayer.h"
 #import "KNMusicModel.h"
+#import <MediaPlayer/MPVolumeView.h>
 
 @implementation KNSimleMusicControlView
 
@@ -20,7 +21,7 @@
 {
     if (self = [super initWithFrame:frame])
     {
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:1];
         
         UIView *topLine = [[UIView alloc] init];
         topLine.frame = CGRectMake(0, 0, self.frameWidth, 0.8);
@@ -59,6 +60,13 @@
          player = [KNMusicPlayer shareInstance];
         [player addObserver:self forKeyPath:@"currentIndex" options:NSKeyValueObservingOptionNew context:nil];
         [player addObserver:self forKeyPath:@"progress" options:NSKeyValueObservingOptionNew context:nil];
+        
+        //添加AirPlayer
+//        MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake(self.frameWidth - self.frameHeight * 1.3, self.frameHeight * 0.2, self.frameHeight * 0.6, self.frameHeight * 0.6)];
+//        [volumeView setShowsVolumeSlider:NO];
+//        [volumeView setShowsRouteButton:YES];
+//        [volumeView sizeToFit];
+//        [self addSubview:volumeView];
     }
     return self;
 }

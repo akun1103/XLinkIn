@@ -13,11 +13,19 @@
 #import "KNDocumentViewController.h"
 #import <Photos/Photos.h>
 #import "KNMusicModel.h"
+#import "KNPhotoModel.h"
 
 @interface KNLocalViewController ()
 {
     NSMutableArray *_musicList;
+    NSMutableArray *_photoList;
+    NSMutableArray *_videoList;
     UILabel *musicL;
+    UILabel *photoL;
+    UILabel *videoL;
+    UILabel *documentL;
+    
+    NSUInteger documentCount;
 }
 @end
 
@@ -30,13 +38,8 @@
     self.navigationItem.leftBarButtonItem = nil;
     
     [self setUI];
-    [self getPhotoGroup];
+    [self getAllPhotoAndVideo];
     [self getAllMusic];
-}
-
-- (void)getPhotoGroup
-{
-    
 }
 
 - (void)setUI
@@ -50,7 +53,7 @@
     [photoBtn addTarget:self action:@selector(gotoPhoto) forControlEvents:UIControlEventTouchUpInside];
     [v addSubview:photoBtn];
     
-    UILabel *photoL = [[UILabel alloc] init];
+    photoL = [[UILabel alloc] init];
     photoL.text = @"照片";
     photoL.font = [UIFont systemFontOfSize:14];
     photoL.textAlignment = NSTextAlignmentCenter;
@@ -72,18 +75,18 @@
     [movieBtn addTarget:self action:@selector(gotoMovie) forControlEvents:UIControlEventTouchUpInside];
     [v addSubview:movieBtn];
     
-    UILabel *movieL = [[UILabel alloc] init];
-    movieL.text = @"视频";
-    movieL.font = [UIFont systemFontOfSize:14];
-    movieL.textAlignment = NSTextAlignmentCenter;
-    [v addSubview:movieL];
+    videoL = [[UILabel alloc] init];
+    videoL.text = @"视频";
+    videoL.font = [UIFont systemFontOfSize:14];
+    videoL.textAlignment = NSTextAlignmentCenter;
+    [v addSubview:videoL];
     
     UIButton *documentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [documentBtn setImage:[UIImage imageNamed:@"btn_app"] forState:UIControlStateNormal];
     [documentBtn addTarget:self action:@selector(gotoDocument) forControlEvents:UIControlEventTouchUpInside];
     [v addSubview:documentBtn];
     
-    UILabel *documentL = [[UILabel alloc] init];
+    documentL = [[UILabel alloc] init];
     documentL.text = @"文档";
     documentL.font = [UIFont systemFontOfSize:14];
     documentL.textAlignment = NSTextAlignmentCenter;
@@ -98,10 +101,10 @@
     }];
     
     [photoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(@[@80,photoL,musicBtn,musicL,movieBtn,movieBtn,movieL,documentBtn,documentL]);
+        make.width.mas_equalTo(@[@80,photoL,musicBtn,musicL,movieBtn,movieBtn,videoL,documentBtn,documentL]);
         make.height.mas_equalTo(@[@80,musicBtn,movieBtn,documentBtn]);
         make.top.equalTo(@[v.mas_top,musicBtn.mas_top]);
-        make.left.equalTo(@[v.mas_left,photoL.mas_left,movieBtn.mas_left,movieL.mas_left]);
+        make.left.equalTo(@[v.mas_left,photoL.mas_left,movieBtn.mas_left,videoL.mas_left]);
     }];
     
     [photoL mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -122,7 +125,7 @@
         make.top.equalTo(photoBtn.mas_bottom).with.offset(60);
     }];
     
-    [movieL mas_makeConstraints:^(MASConstraintMaker *make) {
+    [videoL mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(movieBtn.mas_bottom).with.offset(10);
     }];
     
@@ -133,6 +136,64 @@
         make.top.equalTo(documentBtn.mas_bottom).with.offset(10);
     }];
 }
+
+- (void)getAllPhotoAndVideo
+{
+    if (self.assetsLibrary == nil)
+    {
+        _assetsLibrary = [[ALAssetsLibrary alloc] init];
+    }
+    _photoList = [NSMutableArray array];
+    _videoList = [NSMutableArray array];
+    
+    ALAssetsGroupEnumerationResultsBlock resultsBlock = ^(ALAsset *asset, NSUInteger index ,BOOL *stop){
+        if (asset)
+        {
+            NSString *type = [asset valueForProperty:ALAssetPropertyType];
+            NSURL *url = [asset valueForProperty:ALAssetPropertyAssetURL];
+            UIImage *thumbnail = [UIImage imageWithCGImage:asset.aspectRatioThumbnail];
+            NSString *fileName = asset.defaultRepresentation.filename;
+            //            NSTimeInterval duration = [asset valueForProperty:ALAssetPropertyDuration];
+            if ([type isEqualToString:ALAssetTypePhoto])
+            {
+                KNPhotoModel *photo = [[KNPhotoModel alloc] init];
+                photo.url = url;
+                photo.thumbnail = thumbnail;
+                photo.fileName = fileName;
+                [_photoList addObject:photo];
+            }
+            else if([type isEqualToString:ALAssetTypeVideo])
+            {
+                KNPhotoModel *photo = [[KNPhotoModel alloc] init];
+                photo.url = url;
+                photo.thumbnail = thumbnail;
+                photo.fileName = fileName;
+                [_videoList addObject:photo];
+            }
+        }
+    };
+    
+    ALAssetsLibraryGroupsEnumerationResultsBlock groupBlock = ^(ALAssetsGroup *group, BOOL *stop)
+    {
+        ALAssetsFilter *videoFilter = [ALAssetsFilter allAssets];
+        [group setAssetsFilter:videoFilter];
+        if(group)
+        {
+            [group enumerateAssetsUsingBlock:resultsBlock];
+        }
+        else
+        {
+            NSLog(@"photo %lu,video %lu",(unsigned long)_photoList.count,(unsigned long)_videoList.count);
+            photoL.text = [NSString stringWithFormat:@"照片(%lu)",(unsigned long)_photoList.count];
+            videoL.text = [NSString stringWithFormat:@"照片(%lu)",(unsigned long)_videoList.count];
+        }
+        
+    };
+    
+    NSUInteger groupTypes = ALAssetsGroupAlbum | ALAssetsGroupEvent | ALAssetsGroupSavedPhotos;
+    [_assetsLibrary enumerateGroupsWithTypes:groupTypes usingBlock:groupBlock failureBlock:nil];
+}
+
 
 - (void)getAllMusic
 {
@@ -187,6 +248,7 @@
 - (void)gotoPhoto
 {
     KNPhotoViewController *controller = [[KNPhotoViewController alloc] init];
+    controller.photoList = _photoList;
     [self setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:controller animated:YES];
     [self setHidesBottomBarWhenPushed:NO];
