@@ -22,7 +22,7 @@
 {
     if (self=[super initWithFrame:frame]) {
         self.textAlignment = NSTextAlignmentCenter;
-        self.font = [UIFont systemFontOfSize:18];
+        self.font = [UIFont systemFontOfSize:19];
         self.scale = 0.0;
     }
     return self;
@@ -35,9 +35,9 @@
 {
     _scale = scale;
     
-    self.textColor = [UIColor colorWithRed:scale green:0.0 blue:0.0 alpha:1];
+    self.textColor = [UIColor colorWithRed:scale * 50.0/255.0 green:scale * 163.0/255.0 blue:scale * 221.0/255.0 alpha:1];
     
-    CGFloat minScale = 0.9;
+    CGFloat minScale = 0.85;
     CGFloat trueScale = minScale + (1-minScale)*scale;
     self.transform = CGAffineTransformMakeScale(trueScale, trueScale);
 }

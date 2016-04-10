@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
+#import "KNSimleMusicControlView.h"
 
-@interface KNMusicViewController : KNViewController
+@interface KNMusicViewController : KNViewController<UITableViewDelegate,UITableViewDataSource>
 
+@property (nonatomic,strong) NSArray *musicList;
+@property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic,strong) KNSimleMusicControlView *controlView;
 @end

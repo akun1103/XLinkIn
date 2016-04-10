@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.tabBar setTintColor:DEFAULT_NAVBAR_COLOR];
+    [self.tabBar setTintColor:DEFAULT_TABBAR_COLOR];
     [self initChildViewControllers];
 }
 

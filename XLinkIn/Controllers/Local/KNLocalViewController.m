@@ -12,9 +12,13 @@
 #import "KNMovieViewController.h"
 #import "KNDocumentViewController.h"
 #import <Photos/Photos.h>
+#import "KNMusicModel.h"
 
 @interface KNLocalViewController ()
-
+{
+    NSMutableArray *_musicList;
+    UILabel *musicL;
+}
 @end
 
 @implementation KNLocalViewController
@@ -27,11 +31,12 @@
     
     [self setUI];
     [self getPhotoGroup];
+    [self getAllMusic];
 }
 
 - (void)getPhotoGroup
 {
-
+    
 }
 
 - (void)setUI
@@ -56,7 +61,7 @@
     [musicBtn addTarget:self action:@selector(gotoMusic) forControlEvents:UIControlEventTouchUpInside];
     [v addSubview:musicBtn];
     
-    UILabel *musicL = [[UILabel alloc] init];
+    musicL = [[UILabel alloc] init];
     musicL.text = @"音乐";
     musicL.font = [UIFont systemFontOfSize:14];
     musicL.textAlignment = NSTextAlignmentCenter;
@@ -84,11 +89,12 @@
     documentL.textAlignment = NSTextAlignmentCenter;
     [v addSubview:documentL];
     
+    __weak typeof(self) weakSelf = self;
     [v mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(230);
         make.height.mas_equalTo(250);
-        make.centerX.mas_equalTo(self.view.mas_centerX);
-        make.centerY.mas_equalTo(self.view.mas_centerY);
+        make.centerX.mas_equalTo(weakSelf.view.mas_centerX);
+        make.centerY.mas_equalTo(weakSelf.view.mas_centerY);
     }];
     
     [photoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -128,6 +134,56 @@
     }];
 }
 
+- (void)getAllMusic
+{
+    _musicList = [NSMutableArray array];
+    MPMediaQuery *mediaQuery = [[MPMediaQuery alloc] init];
+    MPMediaPropertyPredicate *albumPredicate = [MPMediaPropertyPredicate predicateWithValue:[NSNumber numberWithInt:MPMediaTypeMusic] forProperty:MPMediaItemPropertyMediaType];
+    [mediaQuery addFilterPredicate:albumPredicate];
+    NSArray *items = [mediaQuery items];
+    musicL.text = [NSString stringWithFormat:@"音乐(%lu)",(unsigned long)items.count];
+    for(MPMediaItem *item in items)
+    {
+        @autoreleasepool {
+            KNMusicModel *music = [KNMusicModel alloc];
+            //获得专辑对象
+            MPMediaItemArtwork *artWork = [item valueForProperty:MPMediaItemPropertyArtwork];
+            UIImage *img = [artWork imageWithSize:CGSizeMake(80, 80)];
+            if (!img)
+            {
+                img = [UIImage imageNamed:@"defaultImage.png"];
+            }
+            
+            //歌曲url
+            NSURL *url = [item valueForProperty:MPMediaItemPropertyAssetURL];
+            //            NSString *url = [NSString stringWithFormat:@"%@",[item valueForProperty:MPMediaItemPropertyAssetURL]];
+            
+            //时间label转换格式MM：SS
+            NSNumber *duration = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
+            int time = [duration intValue];
+            int minutes = time/60;
+            int seconds = time%60;
+            NSString *songtime = [NSString stringWithFormat:@"%d:%02d",minutes,seconds];
+            
+            //歌曲名字
+            NSString *title = [item valueForProperty:MPMediaItemPropertyTitle];
+            
+            //歌手名字
+            NSString *singerName = [item valueForProperty:MPMediaItemPropertyArtist];
+            if (singerName == nil)
+            {
+                singerName = @"unknow";
+            }
+            music.thumbnail = img;
+            music.url = url;
+            music.duration = songtime;
+            music.title = title;
+            music.artist = singerName;
+            [_musicList addObject:music];
+        }
+    }
+}
+
 - (void)gotoPhoto
 {
     KNPhotoViewController *controller = [[KNPhotoViewController alloc] init];
@@ -139,6 +195,7 @@
 - (void)gotoMusic
 {
     KNMusicViewController *controller = [[KNMusicViewController alloc] init];
+    controller.musicList = _musicList;
     [self setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:controller animated:YES];
     [self setHidesBottomBarWhenPushed:NO];

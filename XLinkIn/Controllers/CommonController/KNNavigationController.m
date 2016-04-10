@@ -18,9 +18,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 //    [self.navigationBar setTintColor:[UIColor whiteColor]];
-    [self.navigationBar setBarTintColor:DEFAULT_NAVBAR_COLOR];
-    [self.navigationBar setTintColor:[UIColor whiteColor]];
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+//    [self.navigationBar setBarTintColor:[UIColor redColor]];
+    self.navigationBar.translucent = NO;
+    [self.navigationBar setTintColor:DEFAULT_TABBAR_COLOR];
+//    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:DEFAULT_TABBAR_COLOR}];
 }
 
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
@@ -33,7 +34,7 @@
 
 -(void)addbackBtn:(UIViewController *)viewController{
     
-    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"btn_return"] style:UIBarButtonItemStylePlain target:self action:@selector(backBtnClick)];
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"top_back_white"] style:UIBarButtonItemStylePlain target:self action:@selector(backBtnClick)];
     
     
     viewController.navigationItem.leftBarButtonItems = @[back];
