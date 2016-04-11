@@ -17,6 +17,7 @@
 @property (nonatomic) NSTimeInterval currentTime;
 @property(readonly) NSTimeInterval duration;
 @property(readonly, getter=isPlaying) BOOL playing;
+@property(nonatomic) NSUInteger playState;
 @property(nonatomic,assign) float volume;
 @property(nonatomic,assign) float progress;
 + (instancetype)shareInstance;

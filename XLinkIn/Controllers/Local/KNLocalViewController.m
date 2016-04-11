@@ -208,36 +208,36 @@
         @autoreleasepool {
             KNMusicModel *music = [KNMusicModel alloc];
             //获得专辑对象
-            MPMediaItemArtwork *artWork = [item valueForProperty:MPMediaItemPropertyArtwork];
-            UIImage *img = [artWork imageWithSize:CGSizeMake(80, 80)];
+            MPMediaItemArtwork *artWork = item.artwork;//[item valueForProperty:MPMediaItemPropertyArtwork];
+            UIImage *img = [artWork imageWithSize:CGSizeMake(100, 100)];
             if (!img)
             {
                 img = [UIImage imageNamed:@"defaultImage.png"];
             }
             
             //歌曲url
-            NSURL *url = [item valueForProperty:MPMediaItemPropertyAssetURL];
-            //            NSString *url = [NSString stringWithFormat:@"%@",[item valueForProperty:MPMediaItemPropertyAssetURL]];
-            
+            NSURL *url = item.assetURL;//[item valueForProperty:MPMediaItemPropertyAssetURL];
+
             //时间label转换格式MM：SS
             NSNumber *duration = [item valueForProperty:MPMediaItemPropertyPlaybackDuration];
-            int time = [duration intValue];
-            int minutes = time/60;
-            int seconds = time%60;
-            NSString *songtime = [NSString stringWithFormat:@"%d:%02d",minutes,seconds];
+//            int time = [duration intValue];
+//            int minutes = time/60;
+//            int seconds = time%60;
+//            NSString *songtime = [NSString stringWithFormat:@"%d:%02d",minutes,seconds];
             
             //歌曲名字
-            NSString *title = [item valueForProperty:MPMediaItemPropertyTitle];
+            NSString *title = item.title;//[item valueForProperty:MPMediaItemPropertyTitle];
+            
             
             //歌手名字
-            NSString *singerName = [item valueForProperty:MPMediaItemPropertyArtist];
+            NSString *singerName = item.artist;//[item valueForProperty:MPMediaItemPropertyArtist];
             if (singerName == nil)
             {
                 singerName = @"unknow";
             }
             music.thumbnail = img;
             music.url = url;
-            music.duration = songtime;
+            music.duration = duration;
             music.title = title;
             music.artist = singerName;
             [_musicList addObject:music];

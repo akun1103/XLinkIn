@@ -32,7 +32,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"点播";
-    self.navigationItem.leftBarButtonItem = nil;
+    self.navigationItem.hidesBackButton = YES ;
     _arrayList = [NSArray arrayWithObjects:@"电影",@"电视剧",@"动漫",@"综艺", nil];
 
     [self setScrollView];
