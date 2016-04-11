@@ -55,7 +55,7 @@
     [v addSubview:photoBtn];
     
     photoL = [[UILabel alloc] init];
-    photoL.text = @"照片";
+    photoL.text = @"照片(0)";
     photoL.font = [UIFont systemFontOfSize:14];
     photoL.textAlignment = NSTextAlignmentCenter;
     [v addSubview:photoL];
@@ -66,7 +66,7 @@
     [v addSubview:musicBtn];
     
     musicL = [[UILabel alloc] init];
-    musicL.text = @"音乐";
+    musicL.text = @"音乐(0)";
     musicL.font = [UIFont systemFontOfSize:14];
     musicL.textAlignment = NSTextAlignmentCenter;
     [v addSubview:musicL];
@@ -77,7 +77,7 @@
     [v addSubview:movieBtn];
     
     videoL = [[UILabel alloc] init];
-    videoL.text = @"视频";
+    videoL.text = @"视频(0)";
     videoL.font = [UIFont systemFontOfSize:14];
     videoL.textAlignment = NSTextAlignmentCenter;
     [v addSubview:videoL];
@@ -88,7 +88,7 @@
     [v addSubview:documentBtn];
     
     documentL = [[UILabel alloc] init];
-    documentL.text = @"文档";
+    documentL.text = @"文档(0)";
     documentL.font = [UIFont systemFontOfSize:14];
     documentL.textAlignment = NSTextAlignmentCenter;
     [v addSubview:documentL];

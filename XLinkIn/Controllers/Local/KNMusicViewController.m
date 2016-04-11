@@ -142,6 +142,9 @@ static NSString * const reuseIdentifier = @"Cell";
     {
         cell.leftView.hidden = YES;
     }
+
+    cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
+    cell.selectedBackgroundView.backgroundColor = DEFAULT_TABBAR_COLOR;
     return cell;
 }
 
@@ -153,10 +156,13 @@ static NSString * const reuseIdentifier = @"Cell";
         [self showControl];
         showControl = YES;
     }
-    
-    player.musicList = _musicList;
-    player.currentIndex = indexPath.row;
-    [player startPlay];
+    if(currentPlayCount != indexPath.row)
+    {
+        player.musicList = _musicList;
+        player.currentIndex = indexPath.row;
+        [player startPlay];
+    }
+
 
 
 }
