@@ -9,11 +9,12 @@
 #import "KNLocalViewController.h"
 #import "KNPhotoViewController.h"
 #import "KNMusicViewController.h"
-#import "KNMovieViewController.h"
+#import "KNVideoViewController.h"
 #import "KNDocumentViewController.h"
 #import <Photos/Photos.h>
 #import "KNMusicModel.h"
 #import "KNPhotoModel.h"
+#import "KNVideoModel.h"
 
 @interface KNLocalViewController ()
 {
@@ -164,11 +165,17 @@
             }
             else if([type isEqualToString:ALAssetTypeVideo])
             {
-                KNPhotoModel *photo = [[KNPhotoModel alloc] init];
-                photo.url = url;
-                photo.thumbnail = thumbnail;
-                photo.fileName = fileName;
-                [_videoList addObject:photo];
+                NSNumber *duration = [asset valueForProperty:ALAssetPropertyDuration];
+                int time = round([duration doubleValue]);
+                int minutes = time/60;
+                int seconds = time%60;
+                NSString *videoTime = [NSString stringWithFormat:@"%d:%02d",minutes,seconds];
+                KNVideoModel *video = [[KNVideoModel alloc] init];
+                video.url = url;
+                video.duration = videoTime;
+                video.thumbnail = thumbnail;
+                video.fileName = fileName;
+                [_videoList addObject:video];
             }
         }
     };
@@ -194,6 +201,31 @@
     [_assetsLibrary enumerateGroupsWithTypes:groupTypes usingBlock:groupBlock failureBlock:nil];
 }
 
+- (void)getAllPhoto
+{
+    //获取所有资源的集合，并按资源的创建时间排序
+//    PHFetchOptions *options = [[PHFetchOptions alloc] init];
+//    options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES]];
+//    PHFetchResult *assetsFetchResults = [PHAsset fetchAssetsWithOptions:options];
+//    // 这时 assetsFetchResults 中包含的，应该就是各个资源（PHAsset）
+//    for (PHAsset *asset in assetsFetchResults) {
+//        // 获取一个资源（PHAsset）
+//        PHAssetMediaType type = asset.mediaType;
+////        NSURL *url = asset 
+//        if(type == PHAssetMediaTypeImage)
+//        {
+//            KNPhotoModel *photo = [[KNPhotoModel alloc] init];
+//            photo.url = url;
+//            photo.thumbnail = thumbnail;
+//            photo.fileName = fileName;
+//            [_photoList addObject:photo];
+//        }
+//        else if(type == PHAssetMediaTypeVideo)
+//        {
+//            
+//        }
+//    }
+}
 
 - (void)getAllMusic
 {
@@ -212,7 +244,7 @@
             UIImage *img = [artWork imageWithSize:CGSizeMake(100, 100)];
             if (!img)
             {
-                img = [UIImage imageNamed:@"defaultImage.png"];
+                img = [UIImage imageNamed:@"defaultImage"];
             }
             
             //歌曲url
@@ -265,7 +297,8 @@
 
 - (void)gotoMovie
 {
-    KNMovieViewController *controller = [[KNMovieViewController alloc] init];
+    KNVideoViewController *controller = [[KNVideoViewController alloc] init];
+    controller.videoList = _videoList;
     [self setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:controller animated:YES];
     [self setHidesBottomBarWhenPushed:NO];

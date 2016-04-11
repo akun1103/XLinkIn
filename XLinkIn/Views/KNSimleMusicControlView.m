@@ -34,6 +34,7 @@
         [self addSubview:_progressView];
         
         _imageView = [[UIImageView alloc] init];
+        _imageView.image = [UIImage imageNamed:@"defaultImage"];
         _imageView.frame = CGRectMake(self.frameHeight * 0.2, self.frameHeight * 0.1, self.frameHeight * 0.8, self.frameHeight * 0.8);
         _imageView.layer.cornerRadius = _imageView.frameHeight/2;
         _imageView.layer.masksToBounds = YES;
@@ -57,6 +58,7 @@
         [self addSubview:_playOrPauseBtn];
         
         [self addAnimationForLayer:_imageView.layer];
+        
          player = [KNMusicPlayer shareInstance];
         [player addObserver:self forKeyPath:@"currentIndex" options:NSKeyValueObservingOptionNew context:nil];
         [player addObserver:self forKeyPath:@"progress" options:NSKeyValueObservingOptionNew context:nil];
@@ -133,7 +135,7 @@
     else if([keyPath isEqualToString:@"progress"])
     {
         __weak typeof(self) weakSelf = self;
-        [UIView animateWithDuration:1.0 animations:^{
+        [UIView animateWithDuration:0.5 animations:^{
             weakSelf.progressView.frameWidth = weakSelf.frameWidth * player.progress;
         }];
     }
@@ -157,6 +159,7 @@
 -(void)dealloc{
     [player removeObserver:self forKeyPath:@"currentIndex"];//移除监听
     [player removeObserver:self forKeyPath:@"progress"];//移除监听
+    [player removeObserver:self forKeyPath:@"playState"];//移除监听
     //[super dealloc];//注意启用了ARC，此处不需要调用
 }
 

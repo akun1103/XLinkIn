@@ -19,6 +19,7 @@
 {
     KNMusicPlayer *player;
     int currentPlayCount;
+    BOOL showControl;
 }
 @end
 
@@ -36,6 +37,8 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"音乐";
+//   UIBarButtonItem *controlItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"btn_control_h"] style:UIBarButtonItemStylePlain target:self action:@selector(controlBtnClicked)];
+//    self.navigationItem.rightBarButtonItem = controlItem;
     
     self.tableView = [[UITableView alloc] init];
     self.tableView.delegate = self;
@@ -44,8 +47,11 @@ static NSString * const reuseIdentifier = @"Cell";
     
     __weak typeof(self) weakSelf = self;
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(weakSelf.view);
-        make.center.equalTo(weakSelf.view);
+//        make.size.mas_equalTo(weakSelf.view);
+        make.left.mas_equalTo(0);
+        make.top.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.bottom.mas_equalTo(0);
     }];
     [self.tableView setSeparatorStyle: UITableViewCellSeparatorStyleNone];
     [self.tableView registerClass:[KNMusicTableViewCell class] forCellReuseIdentifier:reuseIdentifier];
@@ -63,6 +69,50 @@ static NSString * const reuseIdentifier = @"Cell";
     [player addObserver:self forKeyPath:@"currentIndex" options:NSKeyValueObservingOptionNew context:nil];
 }
 
+- (void)controlBtnClicked
+{
+    if(showControl)
+    {
+        [self hideControl];
+    }
+    else
+    {
+        [self showControl];
+    }
+    showControl = !showControl;
+}
+
+- (void)hideControl
+{
+    __weak typeof(self) weakSelf = self;
+    
+    [UIView animateWithDuration:1.0 animations:^{
+        [weakSelf.controlView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.mas_equalTo(ControlViewHeight);
+        }];
+    } completion:^(BOOL finished) {
+        [weakSelf.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.mas_equalTo(0);
+        }];
+    }];
+}
+
+- (void)showControl
+{
+    __weak typeof(self) weakSelf = self;
+    
+    [UIView animateWithDuration:1.0 animations:^{
+        [weakSelf.controlView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.mas_equalTo(0);
+        }];
+    } completion:^(BOOL finished) {
+        [weakSelf.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.mas_equalTo(-ControlViewHeight);
+
+        }];
+//            weakSelf.tableView.frameHeight = weakSelf.view.frameHeight - ControlViewHeight;
+    }];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -98,16 +148,11 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
-    __weak typeof(self) weakSelf = self;
-
-    [UIView animateWithDuration:1.0 animations:^{
-        [weakSelf.controlView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.bottom.mas_equalTo(0);
-        }];
-    } completion:^(BOOL finished) {
-        tableView.frameHeight = weakSelf.view.frameHeight - ControlViewHeight;
-    }];
+    if(!showControl)
+    {
+        [self showControl];
+        showControl = YES;
+    }
     
     player.musicList = _musicList;
     player.currentIndex = indexPath.row;

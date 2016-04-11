@@ -1,29 +1,28 @@
 //
-//  KNPhotosViewController.m
+//  KNMovieViewController.m
 //  XLinkIn
 //
-//  Created by Kevin Yin on 4/4/16.
+//  Created by Kevin Yin on 4/5/16.
 //  Copyright © 2016 Kevin Yin. All rights reserved.
 //
 
-#import "KNPhotoViewController.h"
-#import "KNPhotoCollectionViewCell.h"
-#import "KNPhotoModel.h"
+#import "KNVideoViewController.h"
+#import "KNVideoCollectionViewCell.h"
+#import "KNVideoModel.h"
 
 static NSString * const reuseIdentifier = @"Cell";
 
-@interface KNPhotoViewController ()
+@interface KNVideoViewController ()
 
 @end
 
-@implementation KNPhotoViewController
+@implementation KNVideoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.title = @"照片";
-    
+    self.navigationItem.title = @"视频";
     
     UICollectionViewFlowLayout *flowLayout =[[UICollectionViewFlowLayout alloc]init];
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:flowLayout];
@@ -35,15 +34,13 @@ static NSString * const reuseIdentifier = @"Cell";
         make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     // Register cell classes
-    [self.collectionView registerClass:[KNPhotoCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-
+    [self.collectionView registerClass:[KNVideoCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 #pragma mark <UICollectionViewDataSource>
 
@@ -53,13 +50,15 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _photoList.count;
+    return _videoList.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    KNPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    KNPhotoModel *photo = [_photoList objectAtIndex:indexPath.row];
-    cell.thumbnailImageView.image = [photo thumbnail];
+    KNVideoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    KNVideoModel *video = [_videoList objectAtIndex:indexPath.row];
+    cell.thumbnailImageView.image = [video thumbnail];
+    cell.timeLabel.text = [video duration];
+//    cell.backgroundColor = [UIColor redColor];
     return cell;
 }
 

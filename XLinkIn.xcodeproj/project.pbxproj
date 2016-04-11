@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A1D8D341CB2B6AD0083BE75 /* KNPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D8D331CB2B6AD0083BE75 /* KNPhotoViewController.m */; };
 		0A1D8D371CB2C7EC0083BE75 /* KNMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D8D361CB2C7EC0083BE75 /* KNMusicViewController.m */; };
-		0A1D8D3A1CB2C8060083BE75 /* KNMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D8D391CB2C8060083BE75 /* KNMovieViewController.m */; };
+		0A1D8D3A1CB2C8060083BE75 /* KNVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D8D391CB2C8060083BE75 /* KNVideoViewController.m */; };
 		0A1D8D3D1CB2C8180083BE75 /* KNDocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D8D3C1CB2C8180083BE75 /* KNDocumentViewController.m */; };
 		0A1D8D401CB2C8C50083BE75 /* NetworkSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D8D3F1CB2C8C50083BE75 /* NetworkSingleton.m */; };
 		0A1D8D431CB4065C0083BE75 /* KNMenuLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D8D421CB4065C0083BE75 /* KNMenuLabel.m */; };
@@ -34,6 +34,8 @@
 		0AFE45B31CB8F6C5009F73FD /* KNSimleMusicControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE45B21CB8F6C5009F73FD /* KNSimleMusicControlView.m */; };
 		0AFE45B61CBA8020009F73FD /* KNPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE45B51CBA8020009F73FD /* KNPhotoModel.m */; };
 		0AFE45B91CBA8F0A009F73FD /* KNPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE45B81CBA8F0A009F73FD /* KNPhotoCollectionViewCell.m */; };
+		AA0B019E1CBB99210011C530 /* KNVideoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0B019D1CBB99210011C530 /* KNVideoCollectionViewCell.m */; };
+		AA0B01A11CBB9F7E0011C530 /* KNVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0B01A01CBB9F7E0011C530 /* KNVideoModel.m */; };
 		AA1123471CB6029500B3CC54 /* KNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1123461CB6029500B3CC54 /* KNViewController.m */; };
 		AA11234A1CB602B200B3CC54 /* KNTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1123491CB602B200B3CC54 /* KNTableViewController.m */; };
 		AA11234D1CB602C300B3CC54 /* KNCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11234C1CB602C300B3CC54 /* KNCollectionViewController.m */; };
@@ -50,8 +52,8 @@
 		0A1D8D331CB2B6AD0083BE75 /* KNPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNPhotoViewController.m; sourceTree = "<group>"; };
 		0A1D8D351CB2C7EC0083BE75 /* KNMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNMusicViewController.h; sourceTree = "<group>"; };
 		0A1D8D361CB2C7EC0083BE75 /* KNMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNMusicViewController.m; sourceTree = "<group>"; };
-		0A1D8D381CB2C8060083BE75 /* KNMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNMovieViewController.h; sourceTree = "<group>"; };
-		0A1D8D391CB2C8060083BE75 /* KNMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNMovieViewController.m; sourceTree = "<group>"; };
+		0A1D8D381CB2C8060083BE75 /* KNVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNVideoViewController.h; sourceTree = "<group>"; };
+		0A1D8D391CB2C8060083BE75 /* KNVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNVideoViewController.m; sourceTree = "<group>"; };
 		0A1D8D3B1CB2C8180083BE75 /* KNDocumentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNDocumentViewController.h; sourceTree = "<group>"; };
 		0A1D8D3C1CB2C8180083BE75 /* KNDocumentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNDocumentViewController.m; sourceTree = "<group>"; };
 		0A1D8D3E1CB2C8C50083BE75 /* NetworkSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkSingleton.h; sourceTree = "<group>"; };
@@ -103,6 +105,10 @@
 		1960F4AA84A03839EED33D56 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6DC496ADEA100DA287A5912A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FCA3F42AA94839845FDA01 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		AA0B019C1CBB99210011C530 /* KNVideoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNVideoCollectionViewCell.h; sourceTree = "<group>"; };
+		AA0B019D1CBB99210011C530 /* KNVideoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNVideoCollectionViewCell.m; sourceTree = "<group>"; };
+		AA0B019F1CBB9F7E0011C530 /* KNVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNVideoModel.h; sourceTree = "<group>"; };
+		AA0B01A01CBB9F7E0011C530 /* KNVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNVideoModel.m; sourceTree = "<group>"; };
 		AA1123451CB6029500B3CC54 /* KNViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNViewController.h; sourceTree = "<group>"; };
 		AA1123461CB6029500B3CC54 /* KNViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNViewController.m; sourceTree = "<group>"; };
 		AA1123481CB602B200B3CC54 /* KNTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNTableViewController.h; sourceTree = "<group>"; };
@@ -225,6 +231,8 @@
 				0AFE45A21CB8C88C009F73FD /* KNMusicPlayer.m */,
 				0AFE45B41CBA8020009F73FD /* KNPhotoModel.h */,
 				0AFE45B51CBA8020009F73FD /* KNPhotoModel.m */,
+				AA0B019F1CBB9F7E0011C530 /* KNVideoModel.h */,
+				AA0B01A01CBB9F7E0011C530 /* KNVideoModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -252,6 +260,8 @@
 				0AFE45B21CB8F6C5009F73FD /* KNSimleMusicControlView.m */,
 				0AFE45B71CBA8F0A009F73FD /* KNPhotoCollectionViewCell.h */,
 				0AFE45B81CBA8F0A009F73FD /* KNPhotoCollectionViewCell.m */,
+				AA0B019C1CBB99210011C530 /* KNVideoCollectionViewCell.h */,
+				AA0B019D1CBB99210011C530 /* KNVideoCollectionViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -274,8 +284,8 @@
 				0A1D8D331CB2B6AD0083BE75 /* KNPhotoViewController.m */,
 				0A1D8D351CB2C7EC0083BE75 /* KNMusicViewController.h */,
 				0A1D8D361CB2C7EC0083BE75 /* KNMusicViewController.m */,
-				0A1D8D381CB2C8060083BE75 /* KNMovieViewController.h */,
-				0A1D8D391CB2C8060083BE75 /* KNMovieViewController.m */,
+				0A1D8D381CB2C8060083BE75 /* KNVideoViewController.h */,
+				0A1D8D391CB2C8060083BE75 /* KNVideoViewController.m */,
 				0A1D8D3B1CB2C8180083BE75 /* KNDocumentViewController.h */,
 				0A1D8D3C1CB2C8180083BE75 /* KNDocumentViewController.m */,
 			);
@@ -460,16 +470,18 @@
 				0A1D8D401CB2C8C50083BE75 /* NetworkSingleton.m in Sources */,
 				0A39538E1CB8924F00B5906E /* UIImage+TL.m in Sources */,
 				AA78FA1F1CB649E40014E7DB /* KNNavigationController.m in Sources */,
+				AA0B01A11CBB9F7E0011C530 /* KNVideoModel.m in Sources */,
 				0A1D8D4C1CB564CD0083BE75 /* KNMovieDetailViewController.m in Sources */,
 				0A1D8D431CB4065C0083BE75 /* KNMenuLabel.m in Sources */,
 				0AF6D6DF1CB0FCF200ECE05E /* KNOnlineViewController.m in Sources */,
 				0A3953761CB8915A00B5906E /* KNCommonTableViewCell.m in Sources */,
-				0A1D8D3A1CB2C8060083BE75 /* KNMovieViewController.m in Sources */,
+				0A1D8D3A1CB2C8060083BE75 /* KNVideoViewController.m in Sources */,
 				0AF6D6B41CB0EF4500ECE05E /* AppDelegate.m in Sources */,
 				0AF6D6D91CB0FCD300ECE05E /* KNLocalViewController.m in Sources */,
 				0A39538D1CB8924F00B5906E /* UIDevice+TL.m in Sources */,
 				0A1D8D491CB542A90083BE75 /* KNTools.m in Sources */,
 				0AF6D6DC1CB0FCE200ECE05E /* KNLiveViewController.m in Sources */,
+				AA0B019E1CBB99210011C530 /* KNVideoCollectionViewCell.m in Sources */,
 				0A1D8D371CB2C7EC0083BE75 /* KNMusicViewController.m in Sources */,
 				AA78FA201CB649E40014E7DB /* KNRootTabBarViewController.m in Sources */,
 				0A1D8D461CB5409C0083BE75 /* KNContentShowCollectionViewController.m in Sources */,
