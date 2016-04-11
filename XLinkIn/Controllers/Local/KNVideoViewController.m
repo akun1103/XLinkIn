@@ -88,6 +88,23 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+    browser.delegate = self;
+    [browser setCurrentPhotoIndex:indexPath.row];
+    browser.autoPlayOnAppear = YES;
+    [self.navigationController pushViewController:browser animated:YES];
+}
+
+#pragma mark -MVPhotoBrowser Delegate
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return _videoList.count;
+}
+
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < _videoList.count) {
+        return [MWPhoto photoWithURL:[[_videoList objectAtIndex:index] url]];
+    }
+    return nil;
 }
 
 @end

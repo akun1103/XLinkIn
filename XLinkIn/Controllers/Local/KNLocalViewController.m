@@ -192,7 +192,7 @@
         {
             NSLog(@"photo %lu,video %lu",(unsigned long)_photoList.count,(unsigned long)_videoList.count);
             photoL.text = [NSString stringWithFormat:@"照片(%lu)",(unsigned long)_photoList.count];
-            videoL.text = [NSString stringWithFormat:@"照片(%lu)",(unsigned long)_videoList.count];
+            videoL.text = [NSString stringWithFormat:@"视频(%lu)",(unsigned long)_videoList.count];
         }
         
     };
@@ -201,9 +201,9 @@
     [_assetsLibrary enumerateGroupsWithTypes:groupTypes usingBlock:groupBlock failureBlock:nil];
 }
 
-- (void)getAllPhoto
-{
-    //获取所有资源的集合，并按资源的创建时间排序
+//- (void)getAllPhoto
+//{
+//    //获取所有资源的集合，并按资源的创建时间排序
 //    PHFetchOptions *options = [[PHFetchOptions alloc] init];
 //    options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES]];
 //    PHFetchResult *assetsFetchResults = [PHAsset fetchAssetsWithOptions:options];
@@ -211,7 +211,8 @@
 //    for (PHAsset *asset in assetsFetchResults) {
 //        // 获取一个资源（PHAsset）
 //        PHAssetMediaType type = asset.mediaType;
-////        NSURL *url = asset 
+//        NSURL *url = asset.defaultRepresentation.url;
+//        NSString *fileName = asset.defaultRepresentation.filename;
 //        if(type == PHAssetMediaTypeImage)
 //        {
 //            KNPhotoModel *photo = [[KNPhotoModel alloc] init];
@@ -225,7 +226,7 @@
 //            
 //        }
 //    }
-}
+//}
 
 - (void)getAllMusic
 {

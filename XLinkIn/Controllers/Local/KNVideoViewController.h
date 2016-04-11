@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MWPhotoBrowser.h"
 
-@interface KNVideoViewController : KNViewController<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface KNVideoViewController : KNViewController<UICollectionViewDataSource,UICollectionViewDelegate,MWPhotoBrowserDelegate>
 
 @property(nonatomic,strong) UICollectionView *collectionView;
 @property(nonatomic,strong) NSArray *videoList;

@@ -10,6 +10,7 @@
 #import "KNPhotoCollectionViewCell.h"
 #import "KNPhotoModel.h"
 
+
 static NSString * const reuseIdentifier = @"Cell";
 
 @interface KNPhotoViewController ()
@@ -23,7 +24,6 @@ static NSString * const reuseIdentifier = @"Cell";
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"照片";
-    
     
     UICollectionViewFlowLayout *flowLayout =[[UICollectionViewFlowLayout alloc]init];
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:flowLayout];
@@ -89,6 +89,23 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+    browser.delegate = self;
+    [browser setCurrentPhotoIndex:indexPath.row];
+    [self.navigationController pushViewController:browser animated:YES];
+}
+
+#pragma mark -MVPhotoBrowser Delegate
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return _photoList.count;
+}
+
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < _photoList.count) {
+        return [MWPhoto photoWithURL:[[_photoList objectAtIndex:index] url]];
+    }
+    return nil;
 }
 
 @end

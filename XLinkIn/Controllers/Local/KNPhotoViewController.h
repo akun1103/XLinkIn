@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MWPhotoBrowser.h"
 
-@interface KNPhotoViewController : KNViewController<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface KNPhotoViewController : KNViewController<UICollectionViewDataSource,UICollectionViewDelegate,MWPhotoBrowserDelegate>
 
 @property(nonatomic,strong) UICollectionView *collectionView;
+
 @property(nonatomic,strong) NSArray *photoList;
 
 @end
