@@ -15,7 +15,7 @@
     self = [super initWithFrame:frame];
     if(self)
     {
-        _thumbnailImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frameWidth, self.frameHeight)];
+        _thumbnailImageView = [[UIImageView alloc] init];
         _thumbnailImageView.contentMode = UIViewContentModeScaleAspectFill;
         [_thumbnailImageView setClipsToBounds:YES];
         [self addSubview:_thumbnailImageView];
@@ -23,4 +23,9 @@
     return self;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    [_thumbnailImageView setFrame:CGRectMake(0, 0, self.frameWidth, self.frameHeight)];
+}
 @end

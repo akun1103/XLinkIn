@@ -35,7 +35,7 @@
 {
     _scale = scale;
     
-    self.textColor = [UIColor colorWithRed:scale * 50.0/255.0 green:scale * 163.0/255.0 blue:scale * 221.0/255.0 alpha:1];
+    self.textColor = [UIColor colorWithRed:scale * 255.0/255.0 green:scale * 66.0/255.0 blue:scale * 111.0/255.0 alpha:1];
     
     CGFloat minScale = 0.85;
     CGFloat trueScale = minScale + (1-minScale)*scale;

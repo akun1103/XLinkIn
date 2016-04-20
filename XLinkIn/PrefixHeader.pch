@@ -28,11 +28,19 @@
 #define NSLog(...){};
 #endif
 
+/** NSLog 输出宏*/
+#ifdef DEBUG
+#define NSLog(FORMAT, ...) fprintf(stderr,"%s:%d\t%s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+#define NSLog(...)
+#endif
+
 #import "KNNavigationController.h"
 #import "NetworkSingleton.h"
 #import "SVProgressHUD.h"
 #import "Masonry.h"
 #import "UIImageView+WebCache.h"
+#import "MJExtension.h"
 #import "FMDatabase.h"
 #import "FMDatabaseQueue.h"
 #import "KNTools.h"

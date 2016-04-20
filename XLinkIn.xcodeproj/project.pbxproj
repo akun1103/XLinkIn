@@ -36,6 +36,7 @@
 		0AFE45B91CBA8F0A009F73FD /* KNPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE45B81CBA8F0A009F73FD /* KNPhotoCollectionViewCell.m */; };
 		AA0B019E1CBB99210011C530 /* KNVideoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0B019D1CBB99210011C530 /* KNVideoCollectionViewCell.m */; };
 		AA0B01A11CBB9F7E0011C530 /* KNVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0B01A01CBB9F7E0011C530 /* KNVideoModel.m */; };
+		AA0B01CA1CBE36300011C530 /* KNMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0B01C91CBE36300011C530 /* KNMenuView.m */; };
 		AA1123471CB6029500B3CC54 /* KNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1123461CB6029500B3CC54 /* KNViewController.m */; };
 		AA11234A1CB602B200B3CC54 /* KNTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1123491CB602B200B3CC54 /* KNTableViewController.m */; };
 		AA11234D1CB602C300B3CC54 /* KNCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11234C1CB602C300B3CC54 /* KNCollectionViewController.m */; };
@@ -45,6 +46,19 @@
 		AA78FA231CB64DD60014E7DB /* KNNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AA78FA221CB64DD60014E7DB /* KNNetworkTool.m */; };
 		E738573A5EEA8D163AB346BE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DC496ADEA100DA287A5912A /* libPods.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AA9E6F0A1CC72BA100F2FDC2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0A1D8D311CB113A50083BE75 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -109,6 +123,8 @@
 		AA0B019D1CBB99210011C530 /* KNVideoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNVideoCollectionViewCell.m; sourceTree = "<group>"; };
 		AA0B019F1CBB9F7E0011C530 /* KNVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNVideoModel.h; sourceTree = "<group>"; };
 		AA0B01A01CBB9F7E0011C530 /* KNVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNVideoModel.m; sourceTree = "<group>"; };
+		AA0B01C81CBE362F0011C530 /* KNMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNMenuView.h; sourceTree = "<group>"; };
+		AA0B01C91CBE36300011C530 /* KNMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNMenuView.m; sourceTree = "<group>"; };
 		AA1123451CB6029500B3CC54 /* KNViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNViewController.h; sourceTree = "<group>"; };
 		AA1123461CB6029500B3CC54 /* KNViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNViewController.m; sourceTree = "<group>"; };
 		AA1123481CB602B200B3CC54 /* KNTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNTableViewController.h; sourceTree = "<group>"; };
@@ -123,6 +139,8 @@
 		AA78FA1E1CB649E40014E7DB /* KNRootTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNRootTabBarViewController.m; sourceTree = "<group>"; };
 		AA78FA211CB64DD60014E7DB /* KNNetworkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNNetworkTool.h; sourceTree = "<group>"; };
 		AA78FA221CB64DD60014E7DB /* KNNetworkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNNetworkTool.m; sourceTree = "<group>"; };
+		AA9E6EFA1CC72BA000F2FDC2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		AA9E6F1F1CC7564900F2FDC2 /* libMasonry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMasonry.a; path = "../../../Users/kevin/Library/Developer/Xcode/DerivedData/XLinkIn-gktdgbyeqrramhdopzftqsfvwlsl/Build/Products/Debug-iphoneos/libMasonry.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +280,8 @@
 				0AFE45B81CBA8F0A009F73FD /* KNPhotoCollectionViewCell.m */,
 				AA0B019C1CBB99210011C530 /* KNVideoCollectionViewCell.h */,
 				AA0B019D1CBB99210011C530 /* KNVideoCollectionViewCell.m */,
+				AA0B01C81CBE362F0011C530 /* KNMenuView.h */,
+				AA0B01C91CBE36300011C530 /* KNMenuView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -308,7 +328,9 @@
 		22EA071047FC7ED8013E4973 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AA9E6F1F1CC7564900F2FDC2 /* libMasonry.a */,
 				6DC496ADEA100DA287A5912A /* libPods.a */,
+				AA9E6EFA1CC72BA000F2FDC2 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -352,6 +374,7 @@
 				0AF6D6AA1CB0EF4400ECE05E /* Resources */,
 				F2CA305761AB19E25B95B6D3 /* Embed Pods Frameworks */,
 				D31F4960A6F94E6ED0E5F255 /* Copy Pods Resources */,
+				AA9E6F0A1CC72BA100F2FDC2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -491,6 +514,7 @@
 				0AFE45B91CBA8F0A009F73FD /* KNPhotoCollectionViewCell.m in Sources */,
 				0A39538C1CB8924F00B5906E /* NSString+TL.m in Sources */,
 				0AFE45A31CB8C88C009F73FD /* KNMusicPlayer.m in Sources */,
+				AA0B01CA1CBE36300011C530 /* KNMenuView.m in Sources */,
 				0AFE45B61CBA8020009F73FD /* KNPhotoModel.m in Sources */,
 				0A3953731CB88EBC00B5906E /* KNMusicTableViewCell.m in Sources */,
 				AA1123471CB6029500B3CC54 /* KNViewController.m in Sources */,

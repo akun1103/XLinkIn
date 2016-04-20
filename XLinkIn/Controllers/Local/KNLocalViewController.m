@@ -34,6 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"viewDidLoad");
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"本地";
     self.navigationItem.leftBarButtonItem = nil;

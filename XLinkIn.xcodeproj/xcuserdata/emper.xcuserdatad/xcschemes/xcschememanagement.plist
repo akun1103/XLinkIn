@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Today.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
 		<key>XLinkIn.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -13,6 +18,21 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>0AF6D6AB1CB0EF4400ECE05E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AA9E6EF81CC72BA000F2FDC2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AA9E6F0E1CC73AC900F2FDC2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AA9E6F291CC75FCC00F2FDC2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

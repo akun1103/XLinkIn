@@ -126,8 +126,6 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     KNMusicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
     KNMusicModel *music = [_musicList objectAtIndex:indexPath.row];
     cell.thumbnailImageView.image = music.thumbnail;
     cell.titile.text = music.title;

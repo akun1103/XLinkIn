@@ -32,7 +32,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"点播";
-    self.navigationItem.hidesBackButton = YES ;
+    self.navigationItem.leftBarButtonItem = nil ;
     _arrayList = [NSArray arrayWithObjects:@"电影",@"电视剧",@"动漫",@"综艺", nil];
 
     [self setScrollView];
@@ -42,7 +42,7 @@
 - (void)setScrollView
 {
     UIScrollView *sScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDTH_SCREEN, MenuHeight)];
-    sScrollView.backgroundColor = DEFAULT_BACKGROUND_COLOR;
+//    sScrollView.backgroundColor = DEFAULT_BACKGROUND_COLOR;
     [self.view addSubview:sScrollView];
     _sScrollView = sScrollView;
     
@@ -56,7 +56,6 @@
     bScrollView.bounces = NO;
     bScrollView.pagingEnabled = YES;
     bScrollView.showsHorizontalScrollIndicator = NO;
-//    bScrollView.backgroundColor = [UIColor blueColor];
     bScrollView.delegate = self;
     [self.view addSubview:bScrollView];
     _bScrollView = bScrollView;
@@ -104,11 +103,9 @@
         KNContentShowCollectionViewController *controller = [[KNContentShowCollectionViewController alloc] init];
         controller.url = urlArray[i];
         controller.idStr = idArray[i];
-//        NSArray *arr = [KNDataCacheTool dataWithID:idArray[i]];
-//        [controller.arrayList addObjectsFromArray:arr];
+
         __weak typeof(self) weakSelf = self;
         controller.showContent = ^(NSDictionary *dic){
-            NSLog(@"dic = %@",dic);
             KNMovieDetailViewController *controller = [[KNMovieDetailViewController alloc] init];
             [weakSelf setHidesBottomBarWhenPushed:YES];
             [weakSelf.navigationController pushViewController:controller animated:YES];

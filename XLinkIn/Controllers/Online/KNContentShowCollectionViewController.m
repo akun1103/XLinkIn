@@ -54,10 +54,6 @@ static NSString * const reuseIdentifier = @"Cell";
     
     self.collectionView.mj_footer.automaticallyHidden = YES;
     [self.collectionView.mj_header beginRefreshing];
-    //监控网络状态
-//    [[NetworkSingleton sharedManager] MonitorReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-//        NSLog(@"%ld",(long)status);
-//    }];
 }
 
 - (NSArray *)readCacheDataForType:(NSString *)type
@@ -72,29 +68,29 @@ static NSString * const reuseIdentifier = @"Cell";
     refreshPage = 1;
     NSString *url = [NSString stringWithFormat:@"%@%li",_url,(long)refreshPage];
 
-    if([[NetworkSingleton sharedManager] networkReachable] == NO)
-    {
-        [self.collectionView.mj_header endRefreshing];
-    }
-    else
-    {
+//    if([[NetworkSingleton sharedManager] networkReachable] == NO)
+//    {
+//        [self.collectionView.mj_header endRefreshing];
+//    }
+//    else
+//    {
         [self getDataForType:1 WithURL:url];
-    }
+//    }
 }
 
 - (void)loadMoreData
 {
     NSLog(@"下拉刷新");
     NSString *url = [NSString stringWithFormat:@"%@%li",_url,(long)refreshPage];
-    if([[NetworkSingleton sharedManager] networkReachable] == NO)
-    {
-        NSLog(@"网络断开了！");
-        [self.collectionView.mj_header endRefreshing];
-    }
-    else
-    {
+//    if([[NetworkSingleton sharedManager] networkReachable] == NO)
+//    {
+//        NSLog(@"网络断开了！");
+//        [self.collectionView.mj_header endRefreshing];
+//    }
+//    else
+//    {
         [self getDataForType:2 WithURL:url];
-    }
+//    }
 
 }
 
@@ -164,6 +160,7 @@ static NSString * const reuseIdentifier = @"Cell";
     NSString *url = [[_arrayList objectAtIndex:indexPath.row] objectForKey:@"imgh_url"];
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"movie_default"]];
     cell.label.text = [[_arrayList objectAtIndex:indexPath.row] objectForKey:@"title"];
+    
     return cell;
 }
 

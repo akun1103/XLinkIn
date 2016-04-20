@@ -15,12 +15,12 @@
     self = [super initWithFrame:frame];
     if(self)
     {
-        _thumbnailImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frameWidth, self.frameHeight)];
+        _thumbnailImageView = [[UIImageView alloc] init];
         _thumbnailImageView.contentMode = UIViewContentModeScaleAspectFill;
         [_thumbnailImageView setClipsToBounds:YES];
         [self addSubview:_thumbnailImageView];
         
-        _timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.frameHeight/2, self.frameHeight - 20,self.frameHeight/2 - 5, 20)];
+        _timeLabel = [[UILabel alloc] init];
         _timeLabel.textColor = [UIColor whiteColor];
         _timeLabel.font = [UIFont systemFontOfSize:12.0];
         _timeLabel.textAlignment = NSTextAlignmentRight;
@@ -29,4 +29,10 @@
     return self;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    [_thumbnailImageView setFrame:CGRectMake(0, 0, self.frameWidth, self.frameHeight)];
+    [_timeLabel setFrame:CGRectMake(self.frameHeight/2, self.frameHeight - 20,self.frameHeight/2 - 5, 20)];
+}
 @end

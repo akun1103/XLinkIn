@@ -21,7 +21,7 @@
 {
     if (self = [super initWithFrame:frame])
     {
-        self.backgroundColor = [UIColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:1];
+        self.backgroundColor = [UIColor whiteColor];
         
         UIView *topLine = [[UIView alloc] init];
         topLine.frame = CGRectMake(0, 0, self.frameWidth, 0.8);
@@ -35,18 +35,13 @@
         
         _imageView = [[UIImageView alloc] init];
         _imageView.image = [UIImage imageNamed:@"defaultImage"];
-        _imageView.frame = CGRectMake(self.frameHeight * 0.2, self.frameHeight * 0.1, self.frameHeight * 0.8, self.frameHeight * 0.8);
-        _imageView.layer.cornerRadius = _imageView.frameHeight/2;
-        _imageView.layer.masksToBounds = YES;
         [self addSubview:_imageView];
         
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.frame = CGRectMake(self.frameHeight * 1.2, self.frameHeight * 0.2, self.frameWidth - self.frameHeight * 2.2, self.frameHeight * 0.3);
         _titleLabel.font = [UIFont systemFontOfSize:16];
         [self addSubview:_titleLabel];
         
         _artistLabel = [[UILabel alloc] init];
-        _artistLabel.frame = CGRectMake(self.frameHeight * 1.2, self.frameHeight * 0.6, self.frameWidth - self.frameHeight * 2.2, self.frameHeight * 0.3);
         _artistLabel.font = [UIFont systemFontOfSize:11];
         _artistLabel.textColor = DEFAULT_TEXT_GRAY_COLOR;
         [self addSubview:_artistLabel];
@@ -54,7 +49,6 @@
         _playOrPauseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_playOrPauseBtn setImage:[UIImage imageNamed:@"playing_btn_pause_h"] forState:UIControlStateNormal];
         [_playOrPauseBtn addTarget:self action:@selector(playOrPauseBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-        _playOrPauseBtn.frame = CGRectMake(self.frameWidth - self.frameHeight * 0.9, self.frameHeight * 0.2, self.frameHeight * 0.6, self.frameHeight * 0.6);
         [self addSubview:_playOrPauseBtn];
         
         [self addAnimationForLayer:_imageView.layer];
@@ -64,6 +58,12 @@
         [player addObserver:self forKeyPath:@"progress" options:NSKeyValueObservingOptionNew context:nil];
         [player addObserver:self forKeyPath:@"playState" options:NSKeyValueObservingOptionNew context:nil];
         
+        //添加阴影效果
+        
+        self.layer.shadowColor = [UIColor grayColor].CGColor;
+        self.layer.shadowOffset = CGSizeMake(0, 2);
+        self.layer.shadowOpacity = 1;
+
         //添加AirPlayer
 //        MPVolumeView *volumeView = [[MPVolumeView alloc] initWithFrame:CGRectMake(self.frameWidth - self.frameHeight * 1.3, self.frameHeight * 0.2, self.frameHeight * 0.6, self.frameHeight * 0.6)];
 //        [volumeView setShowsVolumeSlider:NO];
@@ -74,19 +74,26 @@
     return self;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    _imageView.frame = CGRectMake(self.frameHeight * 0.2, self.frameHeight * 0.1, self.frameHeight * 0.8, self.frameHeight * 0.8);
+    _imageView.layer.cornerRadius = _imageView.frameHeight/2;
+    _imageView.layer.masksToBounds = YES;
+    _titleLabel.frame = CGRectMake(self.frameHeight * 1.2, self.frameHeight * 0.2, self.frameWidth - self.frameHeight * 2.2, self.frameHeight * 0.3);
+    _artistLabel.frame = CGRectMake(self.frameHeight * 1.2, self.frameHeight * 0.6, self.frameWidth - self.frameHeight * 2.2, self.frameHeight * 0.3);
+    _playOrPauseBtn.frame = CGRectMake(self.frameWidth - self.frameHeight * 0.9, self.frameHeight * 0.2, self.frameHeight * 0.6, self.frameHeight * 0.6);
+}
+
 - (void)playOrPauseBtnClicked:(id)sender
 {
     if([player isPlaying])
     {
         [player pause];
-//        [_playOrPauseBtn setImage:[UIImage imageNamed:@"playing_btn_play_h"] forState:UIControlStateNormal];
-//        [self pauseLayer:_imageView.layer];
     }
     else
     {
         [player play];
-//        [_playOrPauseBtn setImage:[UIImage imageNamed:@"playing_btn_pause_h"] forState:UIControlStateNormal];
-//        [self resumeLayer:_imageView.layer];
     }
 }
 
@@ -129,8 +136,6 @@
         _titleLabel.text = model.title;
         _imageView.image = model.thumbnail;
         _artistLabel.text = model.artist;
-//        [self pauseLayer:_imageView.layer];
-//        [self resumeLayer:_imageView.layer];
     }
     else if([keyPath isEqualToString:@"progress"])
     {
@@ -144,13 +149,11 @@
         if([player isPlaying])
         {
             [_playOrPauseBtn setImage:[UIImage imageNamed:@"playing_btn_pause_h"] forState:UIControlStateNormal];
-//            [self pauseLayer:_imageView.layer];
             [self resumeLayer:_imageView.layer];
         }
         else
         {
             [_playOrPauseBtn setImage:[UIImage imageNamed:@"playing_btn_play_h"] forState:UIControlStateNormal];
-//            [self resumeLayer:_imageView.layer];
             [self pauseLayer:_imageView.layer];
         }
     }
