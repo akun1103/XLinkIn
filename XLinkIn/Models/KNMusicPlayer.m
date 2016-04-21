@@ -12,13 +12,11 @@
 
 static KNMusicPlayer *sharePlayerInstance = nil;
 
-@implementation KNMusicPlayer
-{
+@implementation KNMusicPlayer {
     NSTimer *timer;
 }
 
-+ (void)initialize
-{
++ (void)initialize {
     // 音频会话
     AVAudioSession *session = [AVAudioSession sharedInstance];
     
@@ -30,8 +28,7 @@ static KNMusicPlayer *sharePlayerInstance = nil;
 //    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
 }
 
-+ (instancetype)shareInstance
-{
++ (instancetype)shareInstance {
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         sharePlayerInstance = [[self alloc] init];
@@ -39,8 +36,7 @@ static KNMusicPlayer *sharePlayerInstance = nil;
     return sharePlayerInstance;
 }
 
-- (void)initWithContentsOfURL:(NSURL *)url error:(NSError * _Nullable __autoreleasing * _Nullable)outError
-{
+- (void)initWithContentsOfURL:(NSURL *)url error:(NSError * _Nullable __autoreleasing * _Nullable)outError {
     if(_player)
     {
         _player = nil;
@@ -67,28 +63,23 @@ static KNMusicPlayer *sharePlayerInstance = nil;
     }
 }
 
-- (void)setVolume:(float)volume
-{
+- (void)setVolume:(float)volume {
     _player.volume = volume;
 }
 
-- (NSTimeInterval)duration
-{
+- (NSTimeInterval)duration {
     return _player.duration;
 }
 
-- (NSTimeInterval)currentTime
-{
+- (NSTimeInterval)currentTime {
     return _player.currentTime;
 }
 
-- (BOOL)isPlaying
-{
+- (BOOL)isPlaying {
     return _player.isPlaying;
 }
 
-- (void)stop
-{
+- (void)stop {
     if(timer)
     {
         [timer invalidate];
@@ -98,8 +89,7 @@ static KNMusicPlayer *sharePlayerInstance = nil;
     self.playState = 0;
 }
 
-- (void)pause
-{
+- (void)pause {
     if(timer)
     {
         [timer invalidate];
@@ -109,8 +99,7 @@ static KNMusicPlayer *sharePlayerInstance = nil;
     self.playState = 0;
 }
 
-- (void)play
-{
+- (void)play {
     if(timer)
     {
         [timer invalidate];
@@ -121,8 +110,7 @@ static KNMusicPlayer *sharePlayerInstance = nil;
     self.playState = 0;
 }
 
-- (void)next
-{
+- (void)next {
     if(self.currentIndex == _musicList.count - 1)
     {
         self.currentIndex = 0;
@@ -134,8 +122,7 @@ static KNMusicPlayer *sharePlayerInstance = nil;
      [self startPlay];
 }
 
-- (void)previous
-{
+- (void)previous {
     if(self.currentIndex == 0)
     {
         self.currentIndex = _musicList.count - 1;
@@ -147,8 +134,7 @@ static KNMusicPlayer *sharePlayerInstance = nil;
     [self startPlay];
 }
 
-- (void)startPlay
-{
+- (void)startPlay {
     [self stop];
     if(timer)
     {
@@ -159,8 +145,7 @@ static KNMusicPlayer *sharePlayerInstance = nil;
     [self initWithContentsOfURL:[_musicList[_currentIndex] url] error:nil];
 }
 
-- (void)updateProgress
-{
+- (void)updateProgress {
     self.progress = self.currentTime/self.duration;
     [self configNowPlayingInfoCenter];
 }
@@ -192,14 +177,12 @@ static KNMusicPlayer *sharePlayerInstance = nil;
 }
 
 #pragma mark -AvaudioPlayer Delegate
-- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
-{
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
     [self next];
 }
 
 /* if an error occurs while decoding it will be reported to the delegate. */
-- (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError * __nullable)error
-{
+- (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError * __nullable)error {
     NSLog(@"error %@",error);
 }
 

@@ -42,7 +42,6 @@
 - (void)setScrollView
 {
     UIScrollView *sScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, WIDTH_SCREEN, MenuHeight)];
-//    sScrollView.backgroundColor = DEFAULT_BACKGROUND_COLOR;
     [self.view addSubview:sScrollView];
     _sScrollView = sScrollView;
     
@@ -156,7 +155,7 @@
     NSUInteger index = scrollView.contentOffset.x / _bScrollView.frame.size.width;
     
     // 滚动标题栏
-    KNMenuLabel *titleLable = (KNMenuLabel *)_sScrollView.subviews[index];
+    KNMenuLabel *titleLable = labelArray[index];
     
     CGFloat offsetx = titleLable.center.x - _sScrollView.frame.size.width * 0.5;
     

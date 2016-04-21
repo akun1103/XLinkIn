@@ -2,7 +2,7 @@
 //  KNNetworkTool.h
 //  XLinkIn
 //
-//  Created by emper on 16/4/7.
+//  Created by emper on 16/4/20.
 //  Copyright © 2016年 Kevin Yin. All rights reserved.
 //
 
@@ -10,5 +10,6 @@
 
 @interface KNNetworkTool : NSObject
 
-- (void)getResultWithParameter:(NSDictionary *)parameter url:(NSString *)url success:(SuccessBlock)successBlock failure:(ErrorBlock)errorBlock;
++ (instancetype) shareInstance;
+
 @end

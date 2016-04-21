@@ -10,5 +10,13 @@
 
 @interface KNTools : NSObject
 
-+(NSDictionary *)jsonToDictionary:(id)json;
+/**
+ *  json数据转换为Dictionary
+ *
+ *  @param data NSData数据
+ *
+ *  @return 返回字典类型
+ */
++(NSDictionary *)jsonDataToDictionary:(NSData *)data;
+
 @end

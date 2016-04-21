@@ -25,8 +25,7 @@
     [self initChildViewControllers];
 }
 
-- (void)initChildViewControllers
-{
+- (void)initChildViewControllers {
     NSMutableArray *childViewControllers = [[NSMutableArray alloc] initWithCapacity:3];
     
     KNLocalViewController *local = [[KNLocalViewController alloc] init];

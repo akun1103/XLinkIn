@@ -114,7 +114,7 @@ static NSString * const reuseIdentifier = @"Cell";
         if(type == 1)
         {
             [_arrayList removeAllObjects];
-            NSArray *array = [weakSelf parseData:responseObject];
+            NSArray *array = [weakSelf parseData:[KNTools jsonDataToDictionary:responseObject]];
             //只缓存最新一页的数据
             [KNDataCacheTool deleteWidthId:weakSelf.idStr];
             [KNDataCacheTool addArr:array andId:weakSelf.idStr];
@@ -125,7 +125,7 @@ static NSString * const reuseIdentifier = @"Cell";
         }
         else if(type == 2)
         {
-            NSArray *array = [weakSelf parseData:responseObject];
+            NSArray *array = [weakSelf parseData:[KNTools jsonDataToDictionary:responseObject]];
             [weakSelf.arrayList addObjectsFromArray:array];
             [weakSelf.collectionView reloadData];
             [weakSelf.collectionView.mj_footer endRefreshing];

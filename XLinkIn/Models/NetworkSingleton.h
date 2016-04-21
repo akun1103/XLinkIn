@@ -20,6 +20,14 @@ typedef void(^NetworkStatus)(AFNetworkReachabilityStatus status);
 - (AFHTTPSessionManager *)baseHttpManager;
 
 #pragma mark AFNetworking --GET
+/**
+ *  AFNetworking 网络请求-get方法
+ *
+ *  @param parameter    get参数
+ *  @param url          url
+ *  @param successBlock 请求成功
+ *  @param errorBlock   请求失败
+ */
 - (void)getResultWithParameter:(NSDictionary *)parameter url:(NSString *)url success:(SuccessBlock)successBlock failure:(ErrorBlock)errorBlock;
 #pragma mark AFNetworking --POST
 - (void)postResultWithParameter:(NSDictionary *)parameter url:(NSString *)url success:(SuccessBlock)successBlock failure:(ErrorBlock)errorBlock;

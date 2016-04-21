@@ -12,8 +12,7 @@ static NetworkSingleton *shareNetworkSingleton = nil;
 
 @implementation NetworkSingleton
 
-+ (NetworkSingleton *)sharedManager
-{
++ (NetworkSingleton *)sharedManager {
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         shareNetworkSingleton = [[self alloc] init];
@@ -21,18 +20,17 @@ static NetworkSingleton *shareNetworkSingleton = nil;
     return shareNetworkSingleton;
 }
 
-- (AFHTTPSessionManager *)baseHttpManager
-{
+- (AFHTTPSessionManager *)baseHttpManager {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager.requestSerializer setTimeoutInterval:TIMEOUT];
+//     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     //默认 responseObject是JSON
-//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];//使用这个将得到的是NSData
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];//使用这个将得到的是NSData
 //    manager.responseSerializer = [AFJSONResponseSerializer serializer];//使用这个将得到的是JSON
     return manager;
 }
 
-- (void)getResultWithParameter:(NSDictionary *)parameter url:(NSString *)url success:(SuccessBlock)successBlock failure:(ErrorBlock)errorBlock
-{
+- (void)getResultWithParameter:(NSDictionary *)parameter url:(NSString *)url success:(SuccessBlock)successBlock failure:(ErrorBlock)errorBlock {
     AFHTTPSessionManager *manager = [self baseHttpManager];
     NSString *urlStr = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     [manager GET:urlStr parameters:parameter progress:^(NSProgress * _Nonnull downloadProgress) {
@@ -43,8 +41,7 @@ static NetworkSingleton *shareNetworkSingleton = nil;
     }];
 }
 
-- (void)postResultWithParameter:(NSDictionary *)parameter url:(NSString *)url success:(SuccessBlock)successBlock failure:(ErrorBlock)errorBlock
-{
+- (void)postResultWithParameter:(NSDictionary *)parameter url:(NSString *)url success:(SuccessBlock)successBlock failure:(ErrorBlock)errorBlock {
     AFHTTPSessionManager *manager = [self baseHttpManager];
     NSString *urlStr = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     [manager POST:urlStr parameters:parameter progress:^(NSProgress * _Nonnull uploadProgress) {
@@ -56,8 +53,7 @@ static NetworkSingleton *shareNetworkSingleton = nil;
     }];
 }
 
-- (void)uploadImageWithParameter:(NSDictionary *)parameter url:(NSString *)url imageArray:(NSArray *)imageArray success:(SuccessBlock)successBlock failure:(ErrorBlock)errorBlock
-{
+- (void)uploadImageWithParameter:(NSDictionary *)parameter url:(NSString *)url imageArray:(NSArray *)imageArray success:(SuccessBlock)successBlock failure:(ErrorBlock)errorBlock {
     AFHTTPSessionManager *manager = [self baseHttpManager];
     NSString *urlStr = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     [manager POST:urlStr parameters:parameter constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
@@ -76,8 +72,7 @@ static NetworkSingleton *shareNetworkSingleton = nil;
     }];
 }
 
-- (void)MonitorReachabilityStatusChangeBlock:(NetworkStatus)networkStatus
-{
+- (void)MonitorReachabilityStatusChangeBlock:(NetworkStatus)networkStatus {
     AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
     [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         networkStatus(status);
@@ -85,8 +80,7 @@ static NetworkSingleton *shareNetworkSingleton = nil;
     [manager startMonitoring];
 }
 
-- (BOOL)networkReachable
-{
+- (BOOL)networkReachable {
     AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
     return manager.reachable;
 }

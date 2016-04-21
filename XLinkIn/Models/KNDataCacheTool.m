@@ -13,8 +13,7 @@ static FMDatabaseQueue *_queue;
 
 @implementation KNDataCacheTool
 
-+(void)initialize
-{
++ (void)initialize {
     NSString *path= [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"news.sqlite"];
     _queue=[FMDatabaseQueue databaseQueueWithPath:path];
     //创建表
@@ -28,15 +27,13 @@ static FMDatabaseQueue *_queue;
 }
 
 
-+(void)addArr:(NSArray *)arr andId:(NSString *)idstr
-{
++ (void)addArr:(NSArray *)arr andId:(NSString *)idstr {
     //NSLog(@"data   %@",idstr);
     for(NSDictionary *dict in arr) {
         [self addDict:dict andId:idstr];
     }
 }
-+(void)addDict:(NSDictionary *)dict andId:(NSString *)idstr
-{
++ (void)addDict:(NSDictionary *)dict andId:(NSString *)idstr {
     [_queue inDatabase:^(FMDatabase *db) {
         NSData *data=[NSKeyedArchiver archivedDataWithRootObject:dict];
         [db executeUpdate:@"insert into info(data,idstr) values(?,?)",data,idstr];
@@ -45,8 +42,7 @@ static FMDatabaseQueue *_queue;
     
 }
 //返回数组
-+(NSArray *)dataWithID:(NSString *)ID
-{
++ (NSArray *)dataWithID:(NSString *)ID {
     __block NSMutableArray *arr=nil;
     [_queue inDatabase:^(FMDatabase *db) {
         
@@ -66,8 +62,7 @@ static FMDatabaseQueue *_queue;
     return arr;
 }
 #pragma mark 删除对应的数据
-+(void)deleteWidthId:(NSString *)ID
-{
++ (void)deleteWidthId:(NSString *)ID {
     
     [_queue inDatabase:^(FMDatabase *db) {
         //delete from info where idstr='T1348648517839'

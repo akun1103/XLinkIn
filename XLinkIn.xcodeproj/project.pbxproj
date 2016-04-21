@@ -41,9 +41,12 @@
 		AA11234A1CB602B200B3CC54 /* KNTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1123491CB602B200B3CC54 /* KNTableViewController.m */; };
 		AA11234D1CB602C300B3CC54 /* KNCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11234C1CB602C300B3CC54 /* KNCollectionViewController.m */; };
 		AA1123501CB62F3800B3CC54 /* KNOnlineCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11234F1CB62F3800B3CC54 /* KNOnlineCollectionViewCell.m */; };
+		AA6829921CC78DBE00AA1A02 /* KNNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6829911CC78DBE00AA1A02 /* KNNetworkTool.m */; };
+		AA6829951CC8BA8300AA1A02 /* KNLiveTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6829941CC8BA8300AA1A02 /* KNLiveTableViewController.m */; };
+		AA6829981CC8D9E900AA1A02 /* KNLiveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6829971CC8D9E900AA1A02 /* KNLiveTableViewCell.m */; };
 		AA78FA1F1CB649E40014E7DB /* KNNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA78FA1C1CB649E40014E7DB /* KNNavigationController.m */; };
 		AA78FA201CB649E40014E7DB /* KNRootTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA78FA1E1CB649E40014E7DB /* KNRootTabBarViewController.m */; };
-		AA78FA231CB64DD60014E7DB /* KNNetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AA78FA221CB64DD60014E7DB /* KNNetworkTool.m */; };
+		AA9E6F3C1CC76EB000F2FDC2 /* KNDateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9E6F3B1CC76EB000F2FDC2 /* KNDateModel.m */; };
 		E738573A5EEA8D163AB346BE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DC496ADEA100DA287A5912A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -133,14 +136,20 @@
 		AA11234C1CB602C300B3CC54 /* KNCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNCollectionViewController.m; sourceTree = "<group>"; };
 		AA11234E1CB62F3800B3CC54 /* KNOnlineCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNOnlineCollectionViewCell.h; sourceTree = "<group>"; };
 		AA11234F1CB62F3800B3CC54 /* KNOnlineCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNOnlineCollectionViewCell.m; sourceTree = "<group>"; };
+		AA6829901CC78DBE00AA1A02 /* KNNetworkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNNetworkTool.h; sourceTree = "<group>"; };
+		AA6829911CC78DBE00AA1A02 /* KNNetworkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNNetworkTool.m; sourceTree = "<group>"; };
+		AA6829931CC8BA8300AA1A02 /* KNLiveTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNLiveTableViewController.h; sourceTree = "<group>"; };
+		AA6829941CC8BA8300AA1A02 /* KNLiveTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNLiveTableViewController.m; sourceTree = "<group>"; };
+		AA6829961CC8D9E900AA1A02 /* KNLiveTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNLiveTableViewCell.h; sourceTree = "<group>"; };
+		AA6829971CC8D9E900AA1A02 /* KNLiveTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNLiveTableViewCell.m; sourceTree = "<group>"; };
 		AA78FA1B1CB649E40014E7DB /* KNNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNNavigationController.h; sourceTree = "<group>"; };
 		AA78FA1C1CB649E40014E7DB /* KNNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNNavigationController.m; sourceTree = "<group>"; };
 		AA78FA1D1CB649E40014E7DB /* KNRootTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNRootTabBarViewController.h; sourceTree = "<group>"; };
 		AA78FA1E1CB649E40014E7DB /* KNRootTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNRootTabBarViewController.m; sourceTree = "<group>"; };
-		AA78FA211CB64DD60014E7DB /* KNNetworkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNNetworkTool.h; sourceTree = "<group>"; };
-		AA78FA221CB64DD60014E7DB /* KNNetworkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNNetworkTool.m; sourceTree = "<group>"; };
 		AA9E6EFA1CC72BA000F2FDC2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		AA9E6F1F1CC7564900F2FDC2 /* libMasonry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMasonry.a; path = "../../../Users/kevin/Library/Developer/Xcode/DerivedData/XLinkIn-gktdgbyeqrramhdopzftqsfvwlsl/Build/Products/Debug-iphoneos/libMasonry.a"; sourceTree = "<group>"; };
+		AA9E6F3A1CC76EB000F2FDC2 /* KNDateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNDateModel.h; sourceTree = "<group>"; };
+		AA9E6F3B1CC76EB000F2FDC2 /* KNDateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNDateModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,8 +248,6 @@
 				0A1D8D3F1CB2C8C50083BE75 /* NetworkSingleton.m */,
 				0A1D8D471CB542A90083BE75 /* KNTools.h */,
 				0A1D8D481CB542A90083BE75 /* KNTools.m */,
-				AA78FA211CB64DD60014E7DB /* KNNetworkTool.h */,
-				AA78FA221CB64DD60014E7DB /* KNNetworkTool.m */,
 				0A3953681CB6AA7B00B5906E /* KNDataCacheTool.h */,
 				0A3953691CB6AA7B00B5906E /* KNDataCacheTool.m */,
 				0A39536E1CB80B8700B5906E /* KNMusicModel.h */,
@@ -251,6 +258,10 @@
 				0AFE45B51CBA8020009F73FD /* KNPhotoModel.m */,
 				AA0B019F1CBB9F7E0011C530 /* KNVideoModel.h */,
 				AA0B01A01CBB9F7E0011C530 /* KNVideoModel.m */,
+				AA9E6F3A1CC76EB000F2FDC2 /* KNDateModel.h */,
+				AA9E6F3B1CC76EB000F2FDC2 /* KNDateModel.m */,
+				AA6829901CC78DBE00AA1A02 /* KNNetworkTool.h */,
+				AA6829911CC78DBE00AA1A02 /* KNNetworkTool.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -282,6 +293,8 @@
 				AA0B019D1CBB99210011C530 /* KNVideoCollectionViewCell.m */,
 				AA0B01C81CBE362F0011C530 /* KNMenuView.h */,
 				AA0B01C91CBE36300011C530 /* KNMenuView.m */,
+				AA6829961CC8D9E900AA1A02 /* KNLiveTableViewCell.h */,
+				AA6829971CC8D9E900AA1A02 /* KNLiveTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,6 +304,8 @@
 			children = (
 				0AF6D6DA1CB0FCE200ECE05E /* KNLiveViewController.h */,
 				0AF6D6DB1CB0FCE200ECE05E /* KNLiveViewController.m */,
+				AA6829931CC8BA8300AA1A02 /* KNLiveTableViewController.h */,
+				AA6829941CC8BA8300AA1A02 /* KNLiveTableViewController.m */,
 			);
 			path = Live;
 			sourceTree = "<group>";
@@ -493,9 +508,12 @@
 				0A1D8D401CB2C8C50083BE75 /* NetworkSingleton.m in Sources */,
 				0A39538E1CB8924F00B5906E /* UIImage+TL.m in Sources */,
 				AA78FA1F1CB649E40014E7DB /* KNNavigationController.m in Sources */,
+				AA6829921CC78DBE00AA1A02 /* KNNetworkTool.m in Sources */,
 				AA0B01A11CBB9F7E0011C530 /* KNVideoModel.m in Sources */,
 				0A1D8D4C1CB564CD0083BE75 /* KNMovieDetailViewController.m in Sources */,
 				0A1D8D431CB4065C0083BE75 /* KNMenuLabel.m in Sources */,
+				AA9E6F3C1CC76EB000F2FDC2 /* KNDateModel.m in Sources */,
+				AA6829951CC8BA8300AA1A02 /* KNLiveTableViewController.m in Sources */,
 				0AF6D6DF1CB0FCF200ECE05E /* KNOnlineViewController.m in Sources */,
 				0A3953761CB8915A00B5906E /* KNCommonTableViewCell.m in Sources */,
 				0A1D8D3A1CB2C8060083BE75 /* KNVideoViewController.m in Sources */,
@@ -510,11 +528,11 @@
 				0A1D8D461CB5409C0083BE75 /* KNContentShowCollectionViewController.m in Sources */,
 				AA11234A1CB602B200B3CC54 /* KNTableViewController.m in Sources */,
 				0AF6D6B11CB0EF4500ECE05E /* main.m in Sources */,
-				AA78FA231CB64DD60014E7DB /* KNNetworkTool.m in Sources */,
 				0AFE45B91CBA8F0A009F73FD /* KNPhotoCollectionViewCell.m in Sources */,
 				0A39538C1CB8924F00B5906E /* NSString+TL.m in Sources */,
 				0AFE45A31CB8C88C009F73FD /* KNMusicPlayer.m in Sources */,
 				AA0B01CA1CBE36300011C530 /* KNMenuView.m in Sources */,
+				AA6829981CC8D9E900AA1A02 /* KNLiveTableViewCell.m in Sources */,
 				0AFE45B61CBA8020009F73FD /* KNPhotoModel.m in Sources */,
 				0A3953731CB88EBC00B5906E /* KNMusicTableViewCell.m in Sources */,
 				AA1123471CB6029500B3CC54 /* KNViewController.m in Sources */,

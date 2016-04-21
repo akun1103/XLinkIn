@@ -10,9 +10,9 @@
 
 @implementation KNTools
 
-+(NSDictionary *)jsonToDictionary:(id)response
++(NSDictionary *)jsonDataToDictionary:(NSData *)data
 {
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:nil];
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
     return dic;
 }
 @end

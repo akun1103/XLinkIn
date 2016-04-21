@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KNLiveViewController : KNViewController
+@interface KNLiveViewController : KNViewController<UIScrollViewDelegate>
+
+@property (nonatomic,strong) UIScrollView *bScrollView;
+@property (nonatomic,strong) UIScrollView *sScrollView;
+@property (nonatomic,copy) NSArray *channelTypeList;
+@property (nonatomic,copy) NSArray *channelDataList;
 
 @end
