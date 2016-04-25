@@ -9,6 +9,7 @@
 #import "KNVideoViewController.h"
 #import "KNVideoCollectionViewCell.h"
 #import "KNVideoModel.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 static NSString * const reuseIdentifier = @"Cell";
 
@@ -88,11 +89,11 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-    browser.delegate = self;
-    [browser setCurrentPhotoIndex:indexPath.row];
-    browser.autoPlayOnAppear = YES;
-    [self.navigationController pushViewController:browser animated:YES];
+    KNVideoModel *video = [_videoList objectAtIndex:indexPath.row];
+    
+    MPMoviePlayerViewController *player = [[MPMoviePlayerViewController alloc] initWithContentURL:video.url];
+    
+    [self.navigationController presentMoviePlayerViewControllerAnimated:player];
 }
 
 #pragma mark -MVPhotoBrowser Delegate

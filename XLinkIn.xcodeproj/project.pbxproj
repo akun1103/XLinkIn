@@ -25,6 +25,8 @@
 		0A39538E1CB8924F00B5906E /* UIImage+TL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3953891CB8924F00B5906E /* UIImage+TL.m */; };
 		0A39538F1CB8924F00B5906E /* UIView+TL.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A39538B1CB8924F00B5906E /* UIView+TL.m */; };
 		0A7485B21CB10E83001BCF73 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A7485B11CB10E83001BCF73 /* Images.xcassets */; };
+		0AD64CE51CC90CB400C91726 /* KNMoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD64CE41CC90CB400C91726 /* KNMoviePlayerViewController.m */; };
+		0AD64CEA1CC90EC400C91726 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD64CE91CC90EC400C91726 /* MediaPlayer.framework */; };
 		0AF6D6B11CB0EF4500ECE05E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6D6B01CB0EF4500ECE05E /* main.m */; };
 		0AF6D6B41CB0EF4500ECE05E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6D6B31CB0EF4500ECE05E /* AppDelegate.m */; };
 		0AF6D6D91CB0FCD300ECE05E /* KNLocalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF6D6D81CB0FCD300ECE05E /* KNLocalViewController.m */; };
@@ -100,6 +102,9 @@
 		0A39538A1CB8924F00B5906E /* UIView+TL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TL.h"; sourceTree = "<group>"; };
 		0A39538B1CB8924F00B5906E /* UIView+TL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TL.m"; sourceTree = "<group>"; };
 		0A7485B11CB10E83001BCF73 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0AD64CE31CC90CB400C91726 /* KNMoviePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNMoviePlayerViewController.h; sourceTree = "<group>"; };
+		0AD64CE41CC90CB400C91726 /* KNMoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNMoviePlayerViewController.m; sourceTree = "<group>"; };
+		0AD64CE91CC90EC400C91726 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		0AF6D6AC1CB0EF4400ECE05E /* XLinkIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XLinkIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AF6D6B01CB0EF4500ECE05E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0AF6D6B21CB0EF4500ECE05E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -157,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AD64CEA1CC90EC400C91726 /* MediaPlayer.framework in Frameworks */,
 				E738573A5EEA8D163AB346BE /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,6 +243,8 @@
 				0AF6D6D11CB0FC8400ECE05E /* Live */,
 				0AF6D6D21CB0FC8400ECE05E /* Local */,
 				0AF6D6D31CB0FC8400ECE05E /* Online */,
+				0AD64CE31CC90CB400C91726 /* KNMoviePlayerViewController.h */,
+				0AD64CE41CC90CB400C91726 /* KNMoviePlayerViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -343,6 +351,7 @@
 		22EA071047FC7ED8013E4973 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0AD64CE91CC90EC400C91726 /* MediaPlayer.framework */,
 				AA9E6F1F1CC7564900F2FDC2 /* libMasonry.a */,
 				6DC496ADEA100DA287A5912A /* libPods.a */,
 				AA9E6EFA1CC72BA000F2FDC2 /* NotificationCenter.framework */,
@@ -502,6 +511,7 @@
 				0A39538F1CB8924F00B5906E /* UIView+TL.m in Sources */,
 				AA1123501CB62F3800B3CC54 /* KNOnlineCollectionViewCell.m in Sources */,
 				0AFE45B31CB8F6C5009F73FD /* KNSimleMusicControlView.m in Sources */,
+				0AD64CE51CC90CB400C91726 /* KNMoviePlayerViewController.m in Sources */,
 				0A3953701CB80B8700B5906E /* KNMusicModel.m in Sources */,
 				0A39536A1CB6AA7B00B5906E /* KNDataCacheTool.m in Sources */,
 				0A1D8D341CB2B6AD0083BE75 /* KNPhotoViewController.m in Sources */,
@@ -634,7 +644,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/XLinkIn/PrefixHeader.pch";
 				INFOPLIST_FILE = XLinkIn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kevin.LinkIn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kevin.XLinkIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -650,7 +660,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/XLinkIn/PrefixHeader.pch";
 				INFOPLIST_FILE = XLinkIn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kevin.LinkIn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kevin.XLinkIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
